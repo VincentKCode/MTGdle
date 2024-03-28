@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script defer src="js/main.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Title and information zone -->
+    <header>
+        <h1 id="title">MTGdle</h1>
+        <h2>Guess the name of the card based on it's color, cost, type, effects, etc...</h2>
+        <!-- Information on how to play and description of gameplay elements (colors) -->
+        <section id="legend">
+            <h3>Indicators</h3>
+        </section>
+        <input id="search-bar" type="text" placeholder="Enter a card name...">
+        <h3 id="timer">Game Timer: X</h3>
+        <h3 id="guess-count">Gues Count: X</h3>
+    </header>
+    <!-- Basic header for each column -->
+    <div id="attribute-names">
+        <h4>Art</h4>
+        <h4>Card Name</h4>
+        <h4>Color(s)</h4>
+        <h4>CMC (mana value)</h4>
+        <h4>Type(s)</h4>
+        <h4>Legendary</h4>
+        <h4>Original Release</h4>
+        <h4>Keywords/Card Effects</h4>
+    </div>
+    <!-- Guessed card grid will go here -->
+    <div id="card-grid">
+            <!-- Exmaple grid for css -->
+            <div class="card-box" id="art">
+                <img id="mini-art" src="images/black-lotus-CUT.jpg" alt="black lotus art">
+            </div>
+            <div class="card-box" id="card-name">
+                <p>Black Lotus</p>
+            </div>
+            <div class="card-box" id="color">
+                Colorless
+            </div>
+            <div class="card-box" id="cmc">
+                <p>0</p>
+            </div>
+            <div class="card-box" id="type">
+                <p>Artifact</p>
+            </div>
+            <div class="card-box" id="lgnd">
+                <p>No</p>
+            </div>
+            <div class="card-box" id="release">
+                <p>ALPHA 1993</p>
+            </div>
+            <div class="card-box" id="keywords">
+                <p>Mana generator / Ramp / Sacrifice</p>
+            </div>
+    </div>
+    <!-- Final screen revealed after win -->
+    <div id="win-screen">
+        <h2>Congratulations, you guessed the card!</h2>
+        <h2 id="total-guesses">Total Guesses: X</h2>
+        <img id="full-card" src="images/black-lotus.png" alt="black lotus">
+    </div>
+</body>
+</html>

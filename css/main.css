@@ -1,0 +1,11 @@
+html {
+    box-sizing: border-box;
+}
+
+#mini-art {
+    width: 10vmin;
+}
+
+#full-card {
+    width: 35vmin;
+}
