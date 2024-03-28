@@ -1,6 +1,89 @@
+/* Custom Fonts */
+
+@font-face {
+    font-family: "Magic-Medieval";
+    src: url(/css/Fonts/magicmedieval-font/Magicmedieval-pRV1.ttf);
+}
+
+@font-face {
+    font-family: "Planeswalker-dings";
+    src: url(/css/Fonts/planewalker-dings-font/PlanewalkerDings-Pl9d.ttf);
+}
+
+@font-face {
+    font-family: "Planeswalker";
+    src: url(/css/Fonts/planewalker-font/Planewalker-38m6.ttf);
+}
+
+@font-face {
+    font-family: "Planeswalker-bold";
+    src: url(/css/Fonts/planewalker-font/PlanewalkerBold-xZj5.ttf);
+}
+
+@font-face {
+    font-family: "Planeswalker-bold-italic";
+    src: url(/css/Fonts/planewalker-font/PlanewalkerBoldItalic-p4qr.ttf);
+}
+
+@font-face {
+    font-family: "Planeswalker-italic";
+    src: url(/css/Fonts/planewalker-font/PlanewalkerItalic-DgM1.ttf);
+}
+
+/* End of font section */
+
+
 html {
     box-sizing: border-box;
 }
+
+
+/* BODY SECTION */
+
+#title {
+    font-family: Magic-Medieval;
+    margin-bottom: -2%;
+    letter-spacing: 3px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Planeswalker;
+    text-align: center;
+}
+
+#legend {
+    position: absolute;
+    top: 9%;
+    left: 8%;
+}
+
+#attribute-names {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 3.5fr;
+    font-family: Planeswalker-italic;
+    
+}
+
+#attribute-names > h4 {
+    text-align: center;
+}
+
+#card-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 3.5fr;
+}
+
+#card-grid > div {
+    text-align: center;
+    
+}
+
+/* END OF BODY SECTION */
+
 
 #mini-art {
     width: 10vmin;

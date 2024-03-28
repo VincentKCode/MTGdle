@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTGdle</title>
     <link rel="stylesheet" href="css/main.css">
     <script defer src="js/main.js"></script>
     <title>Document</title>
@@ -11,21 +12,21 @@
     <!-- Title and information zone -->
     <header>
         <h1 id="title">MTGdle</h1>
-        <h2>Guess the name of the card based on it's color, cost, type, effects, etc...</h2>
-        <!-- Information on how to play and description of gameplay elements (colors) -->
-        <section id="legend">
-            <h3>Indicators</h3>
-        </section>
+        <h3>Guess the name of the card<br>based on it's color, cost, type, effects, etc...</h3>
         <input id="search-bar" type="text" placeholder="Enter a card name...">
         <h3 id="timer">Game Timer: X</h3>
-        <h3 id="guess-count">Gues Count: X</h3>
+        <h3 id="guess-count">Guess Count: X</h3>
     </header>
+    <!-- Information on how to play and description of gameplay elements (colors) -->
+    <section id="legend">
+        <h3>Indicators</h3>
+    </section>
     <!-- Basic header for each column -->
     <div id="attribute-names">
         <h4>Art</h4>
         <h4>Card Name</h4>
         <h4>Color(s)</h4>
-        <h4>CMC (mana value)</h4>
+        <h4>CMC<br>(mana value)</h4>
         <h4>Type(s)</h4>
         <h4>Legendary</h4>
         <h4>Original Release</h4>
@@ -41,7 +42,7 @@
                 <p>Black Lotus</p>
             </div>
             <div class="card-box" id="color">
-                Colorless
+                <p>Colorless</p>
             </div>
             <div class="card-box" id="cmc">
                 <p>0</p>
