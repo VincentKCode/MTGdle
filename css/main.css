@@ -30,6 +30,11 @@
     src: url(/css/Fonts/planewalker-font/PlanewalkerItalic-DgM1.ttf);
 }
 
+@font-face {
+    font-family: "Keyrune";
+    src: url(/css/Keyrune/fonts/keyrune.svg);
+}
+
 /* End of font section */
 
 
@@ -37,6 +42,9 @@ html {
     box-sizing: border-box;
 }
 
+/* body {
+    font-family: Keyrune;
+} */
 
 /* BODY SECTION */
 
@@ -79,16 +87,27 @@ header {
 
 #card-grid > div {
     text-align: center;
-    
+    vertical-align: center;
+}
+
+#win-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
 }
 
 /* END OF BODY SECTION */
 
 
 #mini-art {
-    width: 10vmin;
+    width: 13vmin;
 }
 
 #full-card {
-    width: 35vmin;
+    width: 40vmin;
+}
+
+#card-grid > div > p {
+    font-family: Keyrune;
 }
