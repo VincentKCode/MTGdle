@@ -105,7 +105,7 @@ header {
 /* INDIVIDUAL ELEMENTS */
 
 .card-box:not(:first-child) {
-    background-color: mediumspringgreen;
+    background-color: mediumspringgreen; /* set square colors based on match/partial/miss */
 }
 
 #mini-art {
