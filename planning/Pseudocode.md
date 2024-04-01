@@ -76,7 +76,4 @@ PSEUDOCODE
 
 7. Rendering board (after submit)
   - Create board squares for each category
-  - Highlight board squares based on values of step
-
-  test
-  test2
+  - Highlight board squares based on values of step 6

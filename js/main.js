@@ -39,14 +39,14 @@ const cardList = [
     {
         cardArtMini: '',
         cardArtFull: '',
-        cardName: 'Test Idx 3', // placeholder
-        color: ['Blue'],
-        cmc: 3,
-        type: ['Enchantment'],
-        legendary: false,
-        origin: 'Prophecy\n2000',
-        keywords: ['Card Draw'],
-        hint: '"Will you pay the one?"'
+        cardName: 'The One Ring',
+        color: ['Colorless'],
+        cmc: 4,
+        type: ['Artifact'],
+        legendary: true,
+        origin: 'Tales of Middle Earth\n2023',
+        keywords: ['Card Draw, Self-burn, Protection, Indestructable'],
+        hint: '"Post Malone\'s most expensive card..."'
     },
     {
         cardArtMini: '',
@@ -99,12 +99,15 @@ let guessCard; // guessed cards will be saved in obj, reference guesses by idx o
 // let valMatch; // Matching values of card (might be redundant)
 
 /*----- cached elements  -----*/
-
+let textInputEl = document.getElementById('search-bar');
+const gameTimerEl = document.getElementById('timer');
+const guessCountEl = document.querySelectorAll('.guess-count');
+const replayBtnEl = document.querySelector('button');
 
 /*----- event listeners -----*/
+textInputEl.addEventListener('keypress', handleGuess);
 
-
-/*----- functions -----*/
+/*----- initialize functions -----*/
 init();
 
 function init() {
@@ -122,6 +125,7 @@ function rndCardPicker() { // WORKING
     return rndCard;
 }
 
+/*----- render functions -----*/
 function render() {
     renderBoard(); // render guessed card squares (try to render guessed card at the end)
     getWinner(); // might make renderHitCard useless
@@ -149,4 +153,13 @@ function renderGuessCount() {
 
 function renderDropMenu() {
 
+}
+/*----- End of render functions -----*/
+
+/*----- Functions -----*/
+function handleGuess(evt) {
+    if (evt.key !== 'Enter') return;
+    evt.preventDefault();
+    alert(textInputEl.value.toUpperCase()); // placeholder function test
+    
 }
