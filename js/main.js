@@ -89,16 +89,20 @@ const cardList = [
 /*----- constants -----*/
 const CARD_BACK = '' // link img for card back when added
 let MAX_GUESS; // add max guess number when finished for init function
+const ARR_VALUES = {
+    exact: 'true',
+    semi: 'partial',
+    none: 'false',
+};
 
 /*----- state variables -----*/
-let board;
+// let board; // i dont think this is needed
 let guessCount;
 let winner;
 let hidCard; // Hidden card
 // let trueAttr; // attributes of hidden card to compare (probably unnecessary)
 let guessCards; // guessed cards will be saved in an array, reference guesses by idx or name
 let matchVals; // Matching values of card (might be redundant)
-let arrMatches;
 
 /*----- cached elements  -----*/
 let textInputEl = document.getElementById('search-bar');
@@ -120,7 +124,6 @@ function init() {
     hidCard = rndCardPicker(); // currently holding card object from cardList array
     guessCards = []; // obj for saving cards that have been guessed so player cant select them again
     matchVals = {}; // obj for saving results of card guess and what parts match the secret card
-    arrMatches = []; // not functioning correctly when initialized in compareArrs function
     render();
 }
 
@@ -136,7 +139,6 @@ function rndCardPicker() { // WORKING
 /*----- render functions -----*/
 function render() {
     renderBoard(); // render guessed card squares (try to render guessed card at the end)
-    getWinner(); // might make renderHitCard useless
     renderHidCard(); // stay hidden until winner = 1
     renderGuessCount(); // take guessCards.length + 1(correct 0 idx count)
     // renderCardSheet(); // card list cheat sheet for easy mode (might be iceboxed)
@@ -146,35 +148,40 @@ function render() {
 
 function renderBoard() {
     let newCard = guessCards[guessCards.length - 1];
-    // create new row in grid
-    newRow(newCard); 
+    // create new row in grid - return at start of game
+    if (guessCards.length !== 0) newRow(newCard);
+    matchVals = {}; // reset matchVals for next input
 }
 
-function getWinner() {
-
-}
 
 function renderHidCard() {
-
+    
 }
 
 function renderGuessCount() {
-
+    
 }
 
 // probably not a render function
 function renderDropMenu() {
+
 }
+
 /*----- End of render functions -----*/
 
 /*----- Functions -----*/
+function getWinner() {
+
+}
+
 function handleGuess(evt) {
-    if (evt.key !== 'Enter') return;
+    if (evt.key !== 'Enter' || winner) return;
     evt.preventDefault();
     guessCount++;
     let cardGuess = textInputEl.value.toLowerCase();
     // alert(typeof(cardGuess)); // placeholder function test
     nameFilter(cardGuess);
+    render()
     return cardGuess;
 }
 
@@ -188,6 +195,7 @@ function nameFilter(cardGuess) {
             // console.log('WINNER');
             guessCards.push(card);
             compareCards(card);
+            // getWinner(); // run winner function
             break;
         // name input to card in list array
         } else if (listCard === cardGuess) {
@@ -202,6 +210,12 @@ function nameFilter(cardGuess) {
 // access attributes of wrong card guess for comparison
 function compareCards(cardObj) {
     // console.log('path true');
+    let arrMatches = { // send into compareArrs function
+        sameColors: [],
+        sameTypes: [],
+        sameKeywords: [],
+    } 
+
     for (let attr in cardObj) {
         let secAttrKey = hidCard[attr];
         // check for non array values
@@ -210,36 +224,138 @@ function compareCards(cardObj) {
             // console.log(`${attr} | ${cardObj[attr]} = true`);
             // check array for matches
         } else if (typeof(cardObj[attr]) === "object") {
-            compareArrs(cardObj[attr], secAttrKey, attr)
+            compareArrs(cardObj[attr], secAttrKey, attr, arrMatches)
             // no match
         } else {
             matchVals[`${attr}`] = false;
             // console.log(`${attr} | ${cardObj[attr]} = false`);
         }
     }
+    // send categories to matchVals object
+    matchVals.color = arrMatches.sameColors;
+    matchVals.type = arrMatches.sameTypes;
+    matchVals.keywords = arrMatches.sameKeywords;
+    // reset object for next guess
+    arrMatches = {
+        sameColors: [],
+        sameTypes: [],
+        sameKeywords: [],
+    };
 }
 
                   //  array | hidcard arr | key
-function compareArrs(attrArray, secArray, refAttr) {    
+function compareArrs(attrArray, secArray, refAttr, arrMatches) { 
     let i = 0;
     // WORKING // checks attributes containing arrays for individual matches
     while(i < secArray.length) {
         if (attrArray.includes(secArray[i])) {
-            arrMatches.push(`${secArray[i]}`);
+            if (refAttr === 'color') arrMatches.sameColors.push(`${secArray[i]}`);
+            if (refAttr === 'type') arrMatches.sameTypes.push(`${secArray[i]}`);
+            if (refAttr === 'keywords') arrMatches.sameKeywords.push(`${secArray[i]}`);
 
             // console.log(`${refAttr} includes ${secArray[i]}`);
             // console.log(attrArray);
         } 
         i++;
     }
-    matchVals.arrayValues = arrMatches; // add array items to matchVals to color the squares
+    return arrMatches;
+}
+
+function handleColorOutput(newCard) {
+    let clrCounter = 0;
+    let sqrColor;
+    for (let hidColor of hidCard.color) {
+        // console.log(newCard.color);
+        // console.log(hidCard.color);
+        // console.log(hidColor);
+        console.log(newCard.color.includes(hidColor));
+        if (newCard.color.includes(hidColor)) {
+            clrCounter++;
+        }
+    }
+    console.log(clrCounter);
+    switch (clrCounter) {
+        case 0:
+            sqrColor = ARR_VALUES.none;
+            break;
+        case clrCounter === hidCard.color.length && clrCounter === newCard.color.length:
+            sqrColor = ARR_VALUES.exact;
+            break;
+        case clrCounter !== hidCard.color.length || newCard.color.length !== hidCard.color.length:
+            sqrColor = ARR_VALUES.semi;
+            break;
+    }
+    return sqrColor; // not returning a value
 }
 
 // Row creation function
 function newRow(newCard) {
+    let colors = handleColorOutput(newCard);
+    console.log(colors);
+    let types;
+    let keywords;
     const newSect = document.createElement('section');
-    // add individual divs to show information
-    
-
+    newSect.setAttribute('class', 'grdRow');
+    // add individual divs to show information 
+    for (let i = 0; i <= 7; i++) { // 7 is max because there are 7 divs in the board display
+        switch(i) {
+            case i = 0: {
+                const art = document.createElement('div');
+                art.setAttribute('class', 'card-box');
+                art.innerHTML = `<img id="mini-art" src="${newCard.cardArtMini}">`
+                newSect.appendChild(art);
+                break;
+            }
+            case i = 1: {
+                const name = document.createElement('div');
+                name.setAttribute('class', `${matchVals.cardName}`);
+                name.innerHTML = `<p>${newCard.cardName}</p>`;
+                newSect.appendChild(name);
+                break;
+            }
+            case i = 2: {
+                const color = document.createElement('div'); // need check function for partial
+                color.setAttribute('class', colors);
+                color.innerHTML = `<p>${newCard.color.join(' ')}<p>`;
+                newSect.appendChild(color);
+                break;
+            }
+            case i = 3: {
+                const cmc = document.createElement('div');
+                cmc.setAttribute('class', `${matchVals.cmc}`);
+                cmc.innerHTML = `<p>${newCard.cmc}</p>`;
+                newSect.appendChild(cmc);
+                break;
+            }
+            case i = 4: {
+                const type = document.createElement('div'); // needs check function for partial
+                type.setAttribute('class', 'card-box');
+                type.innerHTML = `<p>${newCard.type.join(' ')}</p>`;
+                newSect.appendChild(type);
+                break;
+            }
+            case i = 5: {
+                const lgnd = document.createElement('div');
+                lgnd.setAttribute('class', `${matchVals.legendary}`);
+                lgnd.innerHTML = `<p>${newCard.legendary ? 'Yes' : 'No'}</p>`;
+                newSect.appendChild(lgnd);
+                break;
+            }
+            case i = 6: {
+                const origin = document.createElement('div');
+                origin.setAttribute('class', `${matchVals.origin}`);
+                origin.innerHTML = `<p>${newCard.origin}</p>`; // ICEBOX: add arrow for newer/older
+                newSect.appendChild(origin);
+                break;
+            }
+            case i = 7: {
+                const keyword = document.createElement('div'); // needs check function for partial
+                keyword.setAttribute('class', 'card-box');
+                keyword.innerHTML = `<p>${newCard.keywords.join(' / ')}</p>`;
+                newSect.appendChild(keyword);
+                break;
+            }
+        }
+    }
     cardGridEl.appendChild(newSect);
 }
