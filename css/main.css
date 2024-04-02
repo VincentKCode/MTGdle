@@ -76,14 +76,14 @@ header {
     text-align: center;
 }
 
-#card-grid {
+.grdRow {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 3.5fr;
     gap: 15px;
     margin: 0 20px;
 }
 
-#card-grid > div {
+.grdRow > div {
     font-family: "Varela Round";
     text-align: center;
     display: flex;
@@ -104,9 +104,9 @@ header {
 
 /* INDIVIDUAL ELEMENTS */
 
-.card-box:not(:first-child) {
-    background-color: mediumspringgreen; /* set square colors based on match/partial/miss */
-}
+/* .card-box:not(:first-child) {
+    background-color: mediumspringgreen; /* set square colors based on match/partial/miss
+} */
 
 #mini-art {
     width: 10rem;
@@ -118,3 +118,18 @@ header {
 }
 
 /* END OF INDIVIDUAL ELEMENTS */
+
+/* Attribute box classes */
+
+.true {
+    background-color: #66ff66;
+}
+
+.partial {
+    background-color: #ffe066;
+}
+
+.false {
+    background-color: #ff6666
+    ;
+}
