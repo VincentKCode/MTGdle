@@ -87,7 +87,8 @@ const cardList = [
 ];
 
 /*----- constants -----*/
-
+const CARD_BACK = '' // link img for card back when added
+let MAX_GUESS; // add max guess number when finished for init function
 
 /*----- state variables -----*/
 let board;
@@ -95,8 +96,9 @@ let guessCount;
 let winner;
 let hidCard; // Hidden card
 // let trueAttr; // attributes of hidden card to compare (probably unnecessary)
-let guessCard; // guessed cards will be saved in obj, reference guesses by idx or name
-// let valMatch; // Matching values of card (might be redundant)
+let guessCards; // guessed cards will be saved in an array, reference guesses by idx or name
+let matchVals; // Matching values of card (might be redundant)
+let arrMatches;
 
 /*----- cached elements  -----*/
 let textInputEl = document.getElementById('search-bar');
@@ -116,7 +118,9 @@ function init() {
     guessCount = 0;
     winner = null; // 1-win, null-game in progress
     hidCard = rndCardPicker(); // currently holding card object from cardList array
-    guessCard = {}; // obj for saving cards that have been guessed so player cant select them again
+    guessCards = []; // obj for saving cards that have been guessed so player cant select them again
+    matchVals = {}; // obj for saving results of card guess and what parts match the secret card
+    arrMatches = []; // not functioning correctly when initialized in compareArrs function
     render();
 }
 
@@ -134,13 +138,16 @@ function render() {
     renderBoard(); // render guessed card squares (try to render guessed card at the end)
     getWinner(); // might make renderHitCard useless
     renderHidCard(); // stay hidden until winner = 1
-    renderGuessCount(); // take guessCard.length + 1(correct 0 idx count)
+    renderGuessCount(); // take guessCards.length + 1(correct 0 idx count)
     // renderCardSheet(); // card list cheat sheet for easy mode (might be iceboxed)
     renderDropMenu(); // card dropdown menu when player types
+    // matchVals = {}; // reset matchVals for new input on next guess
 }
 
 function renderBoard() {
-    newRow(cardGridEl); // create new row in grid
+    let newCard = guessCards[guessCards.length - 1];
+    // create new row in grid
+    newRow(newCard); 
 }
 
 function getWinner() {
@@ -155,8 +162,8 @@ function renderGuessCount() {
 
 }
 
+// probably not a render function
 function renderDropMenu() {
-
 }
 /*----- End of render functions -----*/
 
@@ -164,54 +171,75 @@ function renderDropMenu() {
 function handleGuess(evt) {
     if (evt.key !== 'Enter') return;
     evt.preventDefault();
+    guessCount++;
     let cardGuess = textInputEl.value.toLowerCase();
     // alert(typeof(cardGuess)); // placeholder function test
     nameFilter(cardGuess);
     return cardGuess;
 }
 
-function nameFilter(cardGuess) { // match cardList card obj to input name
+// match cardList card obj to input name
+function nameFilter(cardGuess) {
     for (const card of cardList) {
         // need to make current card name a variable for equality to work properly for some reason
         let listCard = card.cardName;
-        if (hidCard.cardName === cardGuess) { // check for winner
-            console.log('WINNER');
+        // check for winner
+        if (hidCard.cardName === cardGuess) {
+            // console.log('WINNER');
+            guessCards.push(card);
+            compareCards(card);
             break;
-        } else if (listCard === cardGuess) { // name input to card in list array
+        // name input to card in list array
+        } else if (listCard === cardGuess) {
             // console.log(listCard);
+            guessCards.push(card);
             compareCards(card);
         } 
     }
+    return matchVals;
 }
 
-function compareCards(cardObj) { // access attributes of wrong card guess for comparison
-    console.log('path true');
+// access attributes of wrong card guess for comparison
+function compareCards(cardObj) {
+    // console.log('path true');
     for (let attr in cardObj) {
         let secAttrKey = hidCard[attr];
-        // console.log(secAttrKey)
-        if (cardObj[attr] === secAttrKey) { // check for non array values
-            console.log(`${attr} | ${cardObj[attr]} = true`);
-        } else if (typeof(cardObj[attr]) === "object") { // check array for matches
+        // check for non array values
+        if (cardObj[attr] === secAttrKey) {
+            matchVals[`${attr}`] = true;
+            // console.log(`${attr} | ${cardObj[attr]} = true`);
+            // check array for matches
+        } else if (typeof(cardObj[attr]) === "object") {
             compareArrs(cardObj[attr], secAttrKey, attr)
-        } else console.log(`${attr} | ${cardObj[attr]} = false`); // no match
-
-        // if (typeof(cardObj[attr]) === "object") {
-        //     compareArrs(cardObj[attr], secAttrKey, attr)
-        // }
+            // no match
+        } else {
+            matchVals[`${attr}`] = false;
+            // console.log(`${attr} | ${cardObj[attr]} = false`);
+        }
     }
 }
+
                   //  array | hidcard arr | key
 function compareArrs(attrArray, secArray, refAttr) {    
     let i = 0;
-    while(i < secArray.length) { // WORKING // checks attributes containing arrays for individual matches
+    // WORKING // checks attributes containing arrays for individual matches
+    while(i < secArray.length) {
         if (attrArray.includes(secArray[i])) {
-            console.log(`${refAttr} includes ${secArray[i]}`);
+            arrMatches.push(`${secArray[i]}`);
+
+            // console.log(`${refAttr} includes ${secArray[i]}`);
             // console.log(attrArray);
         } 
         i++;
     }
+    matchVals.arrayValues = arrMatches; // add array items to matchVals to color the squares
 }
 
-function newRow(cardGrid) {
+// Row creation function
+function newRow(newCard) {
+    const newSect = document.createElement('section');
+    // add individual divs to show information
     
+
+    cardGridEl.appendChild(newSect);
 }
