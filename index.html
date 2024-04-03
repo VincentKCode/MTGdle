@@ -25,12 +25,23 @@
       <input id="search-bar" type="text" placeholder="Enter a card name..." />
       <h4 id="error-message">That name is not valid or hasn't been added to the guess list yet...</h4>
       <button>Play Again</button>
-      <h3 id="timer">Game Timer: X</h3>
       <h3>Remaining Guesses: <span class="guesses-remaining font-target"></span></h3>
     </header>
     <!-- Information on how to play and description of gameplay elements (colors) -->
     <section id="legend">
-      <h3>Indicators</h3>
+      <h3 class="legend-title">Indicators</h3>
+      <div id="indicator-true" class="indicator true">
+        <p>Example Trait</p>
+      </div>
+      <p>All values match</p>
+      <div id="indicator-false" class="indicator false">
+        <p>Example Trait</p>
+      </div>
+      <p>No matching values</p>
+      <div id="indicator-partial" class="indicator partial">
+        <p>Example Trait</p>
+      </div>
+      <p>One or more values match</p>
     </section>
     <!-- Basic header for each column -->
     <div id="attribute-names">
@@ -45,37 +56,6 @@
     </div>
     <!-- Guessed card grid will go here -->
     <div id="card-grid">
-      <section class="grdRow">
-        <!-- Exmaple grid for css -->
-        <div class="card-box" id="art">
-          <img
-            id="mini-art"
-            src="images/black-lotus-CUT.jpg"
-            alt="black lotus art"
-          />
-        </div>
-        <div class="card-box false" id="card-name">
-          <p>Black Lotus</p>
-        </div>
-        <div class="card-box true" id="color">
-          <p>Colorless</p>
-        </div>
-        <div class="card-box partial" id="cmc">
-          <p>0</p>
-        </div>
-        <div class="card-box true" id="type">
-          <p>Artifact</p>
-        </div>
-        <div class="card-box false" id="lgnd">
-          <p>No</p>
-        </div>
-        <div class="card-box partial" id="release">
-          <p>Alpha<br />1993</p>
-        </div>
-        <div class="card-box partial" id="keywords">
-          <p>Mana generator / Ramp / Self-sacrifice / Tap Ability</p>
-        </div>
-      </section>
     </div>
     <!-- Final screen revealed after win -->
     <div id="win-screen">

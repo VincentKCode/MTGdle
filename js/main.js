@@ -132,6 +132,7 @@ const DATE_MATCH = {
 
 /*----- state variables -----*/
 // let board; // i dont think this is needed
+let failName;
 let ignoreText;
 let guessCount;
 let wrongGuessCount;
@@ -143,7 +144,6 @@ let matchVals; // Matching values of card (might be redundant)
 
 /*----- cached elements  -----*/
 let textInputEl = document.getElementById("search-bar");
-const gameTimerEl = document.getElementById("timer");
 const guessCountEl = document.querySelector(".guesses-remaining");
 const replayBtnEl = document.querySelector("button");
 const cardGridEl = document.getElementById("card-grid");
@@ -159,6 +159,7 @@ init();
 
 function init() {
   // board = []; // will contain img for small art and obj for each attribute being compared
+  failName = 0;
   ignoreText = null;
   guessCount = 0;
   MAX_GUESS = 5; // ICEBOX: let player adjust total or disable for easy mode
@@ -194,7 +195,9 @@ function render() {
 function renderBoard() {
   let newCard = guessCards[guessCards.length - 1]; // returning most recent guess even if name is not valid | ERROR 1
   // create new row in grid - return at start of game
-  if (guessCards.length !== 0 || verifyName()) newRow(newCard);
+  if (guessCards.length !== 0 && !failName) {
+    newRow(newCard);
+  } else nameFailMsg();
   matchVals = {}; // reset matchVals for next input
   winner ? replayBtnEl.style.visibility = 'visible' : replayBtnEl.style.visibility = 'hidden';
 }
@@ -202,8 +205,8 @@ function renderBoard() {
 function renderHidCard() {}
 
 function renderGuessCount() {
-  let remainderDisplay = wrongGuessCount;
-  guessCountEl.innerHTML = `${remainderDisplay}`;
+    let remainderDisplay = wrongGuessCount;
+    guessCountEl.innerHTML = `${remainderDisplay}`;
 }
 
 // probably not a render function
@@ -213,11 +216,9 @@ function renderDropMenu() {}
 
 /*----- Functions -----*/
 function getWinner() {
-  guessCount >= MAX_GUESS ? (winner = -1) : (winner = 1);
+  (guessCount > MAX_GUESS || wrongGuessCount) ? (winner = 1) : (winner = -1);
   renderMessage();
   winCardEl.style.visibility = 'visible';
-  ignoreInput();
-  
 }
 
 function renderMessage() {
@@ -228,11 +229,11 @@ function renderMessage() {
         case 1:
             finalMsgEl.innerHTML = `Congratulations, you guessed the card!<br>Total guesses: ${guessCount}`
     }
+    nameFailMsg();
 }
 
-function ignoreInput() {
-    wrongGuessCount++;
-    if (ignoreText) errorMsgEl.style.visibility = 'visible';
+function nameFailMsg() { // show error msg if name is invalid
+    (failName) ? errorMsgEl.style.visibility = 'visible' : errorMsgEl.style.visibility = 'hidden';
 }
 
 function handleGuess(evt) {
@@ -248,29 +249,38 @@ function handleGuess(evt) {
 
 // match cardList card obj to input name
 function nameFilter(cardGuess) {
+    if (!verifyName(cardGuess)) {
+        return failName = 1;
+    } else failName = 0;
   for (const card of cardList) {
     // need to make current card name a variable for equality to work properly for some reason
     let listCard = card.cardName;
     // check for winner
     if (hidCard.cardName === cardGuess && listCard === cardGuess) {
-      guessCards.push(card);
-      compareCards(card);
-      getWinner(); // run winner function
-      break;
+        guessCards.push(card);
+        compareCards(card);
+        getWinner(); // run winner function
+        wrongGuessCount--;
+        break;
       // name input to card in list array
     } else if (listCard === cardGuess) {
         wrongGuessCount--;
         guessCards.push(card);
         compareCards(card);
-        if (guessCount === 5) return getWinner();
+        if (guessCount > MAX_GUESS || wrongGuessCount === 0) return getWinner();
     }
   }
     //  console.log(cardGuess);
      return cardGuess;
 }
 
-function verifyName() { // make sure name is in the list
-
+function verifyName(cardGuess) { // make sure name is in the list
+    let nameIsPresent = 0;
+    cardList.forEach(function(card) {
+        if (card.cardName === cardGuess) return nameIsPresent++;
+    });
+    // if (!nameIsPresent) console.log('name failed');
+    return nameIsPresent;
 }
 
 // access attributes of wrong card guess for comparison
