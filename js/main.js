@@ -265,12 +265,12 @@ function nameFilter(cardGuess) {
         if (guessCount === 5) return getWinner();
     }
   }
-     console.log(cardGuess);
+    //  console.log(cardGuess);
      return cardGuess;
 }
 
 function verifyName() { // make sure name is in the list
-    
+
 }
 
 // access attributes of wrong card guess for comparison
