@@ -149,6 +149,7 @@ const replayBtnEl = document.querySelector("button");
 const cardGridEl = document.getElementById("card-grid");
 const finalMsgEl = document.getElementById("final-message");
 const winCardEl = document.getElementById("full-card");
+const errorMsgEl = document.getElementById("error-message");
 
 /*----- event listeners -----*/
 textInputEl.addEventListener("keypress", handleGuess);
@@ -191,9 +192,9 @@ function render() {
 }
 
 function renderBoard() {
-  let newCard = guessCards[guessCards.length - 1];
+  let newCard = guessCards[guessCards.length - 1]; // returning most recent guess even if name is not valid | ERROR 1
   // create new row in grid - return at start of game
-  if (guessCards.length !== 0) newRow(newCard);
+  if (guessCards.length !== 0 || verifyName()) newRow(newCard);
   matchVals = {}; // reset matchVals for next input
   winner ? replayBtnEl.style.visibility = 'visible' : replayBtnEl.style.visibility = 'hidden';
 }
@@ -230,7 +231,8 @@ function renderMessage() {
 }
 
 function ignoreInput() {
-    // if (ignoreText) 
+    wrongGuessCount++;
+    if (ignoreText) errorMsgEl.style.visibility = 'visible';
 }
 
 function handleGuess(evt) {
@@ -239,7 +241,7 @@ function handleGuess(evt) {
   guessCount++;
   let cardGuess = textInputEl.value.toLowerCase();
   // alert(typeof(cardGuess)); // placeholder function test
-  nameFilter(cardGuess);
+  nameFilter(cardGuess); // needs to cancel if name input is invalid/not in list | ERROR 1
   render();
   return cardGuess;
 }
@@ -261,11 +263,14 @@ function nameFilter(cardGuess) {
         guessCards.push(card);
         compareCards(card);
         if (guessCount === 5) return getWinner();
-    } else {
-        ignoreInput();
     }
   }
-  return matchVals;
+     console.log(cardGuess);
+     return cardGuess;
+}
+
+function verifyName() { // make sure name is in the list
+    
 }
 
 // access attributes of wrong card guess for comparison

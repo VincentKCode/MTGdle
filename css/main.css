@@ -133,6 +133,7 @@ header {
 
 #error-message {
     margin-top: 0;
+    visibility: 'hidden';
 }
 
 #final-message {
