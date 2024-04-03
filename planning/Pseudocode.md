@@ -77,3 +77,8 @@ PSEUDOCODE
 7. Rendering board (after submit)
   - Create board squares for each category
   - Highlight board squares based on values of step 6
+
+
+ICEBOX:
+  1. Have JS create large card image so player cant cheat using devtools
+  2. 

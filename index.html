@@ -1,76 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MTGdle</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
     <script defer src="js/main.js"></script>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Title and information zone -->
     <header>
-        <h1 id="title">MTGdle</h1>
-        <h3>Guess the name of the card<br>based on it's color, cost, type, effects, etc...</h3>
-        <input id="search-bar" type="text" placeholder="Enter a card name...">
-        <button>Play Again</button>
-        <h3 id="timer">Game Timer: X</h3>
-        <h3>Guess Count: <span class="guess-count font-target"></span></h3>
+      <h1 id="title">MTGdle</h1>
+      <h3>
+        Guess the name of the card<br />based on it's color, cost, type,
+        effects, etc...
+      </h3>
+      <input id="search-bar" type="text" placeholder="Enter a card name..." />
+      <h4 id="error-message">That name Isn't valid or not in our guess list yet...</h4>
+      <button>Play Again</button>
+      <h3 id="timer">Game Timer: X</h3>
+      <h3>Remaining Guesses: <span class="guesses-remaining font-target"></span></h3>
     </header>
     <!-- Information on how to play and description of gameplay elements (colors) -->
     <section id="legend">
-        <h3>Indicators</h3>
+      <h3>Indicators</h3>
     </section>
     <!-- Basic header for each column -->
     <div id="attribute-names">
-        <h4>Art</h4>
-        <h4>Card Name</h4>
-        <h4>Color(s)</h4>
-        <h4>CMC<br>(mana value)</h4>
-        <h4>Type(s)</h4>
-        <h4>Legendary</h4>
-        <h4>Original Release</h4>
-        <h4>Keywords/Card Effects</h4>
+      <h4>Art</h4>
+      <h4>Card Name</h4>
+      <h4>Color(s)</h4>
+      <h4>CMC<br />(mana value)</h4>
+      <h4>Type(s)</h4>
+      <h4>Legendary</h4>
+      <h4>Original Release</h4>
+      <h4>Keywords/Card Effects</h4>
     </div>
     <!-- Guessed card grid will go here -->
     <div id="card-grid">
-        <Section class="grdRow">
-            <!-- Exmaple grid for css -->
-            <div class="card-box" id="art">
-                <img id="mini-art" src="images/black-lotus-CUT.jpg" alt="black lotus art">
-            </div>
-            <div class="card-box false" id="card-name">
-                <p>Black Lotus</p>
-            </div>
-            <div class="card-box true" id="color">
-                <p>Colorless</p>
-            </div>
-            <div class="card-box partial" id="cmc">
-                <p>0</p>
-            </div>
-            <div class="card-box true" id="type">
-                <p>Artifact</p>
-            </div>
-            <div class="card-box false" id="lgnd">
-                <p>No</p>
-            </div>
-            <div class="card-box partial" id="release">
-                <p>Alpha<br>1993</p>
-            </div>
-            <div class="card-box partial" id="keywords">
-                <p>Mana generator / Ramp / Self-sacrifice / Tap Ability</p>
-            </div>
-        </Section>
+      <section class="grdRow">
+        <!-- Exmaple grid for css -->
+        <div class="card-box" id="art">
+          <img
+            id="mini-art"
+            src="images/black-lotus-CUT.jpg"
+            alt="black lotus art"
+          />
+        </div>
+        <div class="card-box false" id="card-name">
+          <p>Black Lotus</p>
+        </div>
+        <div class="card-box true" id="color">
+          <p>Colorless</p>
+        </div>
+        <div class="card-box partial" id="cmc">
+          <p>0</p>
+        </div>
+        <div class="card-box true" id="type">
+          <p>Artifact</p>
+        </div>
+        <div class="card-box false" id="lgnd">
+          <p>No</p>
+        </div>
+        <div class="card-box partial" id="release">
+          <p>Alpha<br />1993</p>
+        </div>
+        <div class="card-box partial" id="keywords">
+          <p>Mana generator / Ramp / Self-sacrifice / Tap Ability</p>
+        </div>
+      </section>
     </div>
     <!-- Final screen revealed after win -->
     <div id="win-screen">
-        <h2>Congratulations, you guessed the card!</h2>
-        <h2>Total Guesses: <span class="guess-count"></span></h2>
-        <img id="full-card" src="images/black-lotus.png" alt="black lotus">
+      <h2 id="final-message"></h2>
+      <img id="full-card" />
     </div>
-</body>
+  </body>
 </html>

@@ -1,40 +1,39 @@
 /* Custom Fonts */
 
 @font-face {
-    font-family: "Magic-Medieval";
-    src: url(/css/Fonts/magicmedieval-font/Magicmedieval-pRV1.ttf);
+  font-family: "Magic-Medieval";
+  src: url(/css/Fonts/magicmedieval-font/Magicmedieval-pRV1.ttf);
 }
 
 @font-face {
-    font-family: "Planeswalker-dings";
-    src: url(/css/Fonts/planewalker-dings-font/PlanewalkerDings-Pl9d.ttf);
+  font-family: "Planeswalker-dings";
+  src: url(/css/Fonts/planewalker-dings-font/PlanewalkerDings-Pl9d.ttf);
 }
 
 @font-face {
-    font-family: "Planeswalker";
-    src: url(/css/Fonts/planewalker-font/Planewalker-38m6.ttf);
+  font-family: "Planeswalker";
+  src: url(/css/Fonts/planewalker-font/Planewalker-38m6.ttf);
 }
 
 @font-face {
-    font-family: "Planeswalker-bold";
-    src: url(/css/Fonts/planewalker-font/PlanewalkerBold-xZj5.ttf);
+  font-family: "Planeswalker-bold";
+  src: url(/css/Fonts/planewalker-font/PlanewalkerBold-xZj5.ttf);
 }
 
 @font-face {
-    font-family: "Planeswalker-bold-italic";
-    src: url(/css/Fonts/planewalker-font/PlanewalkerBoldItalic-p4qr.ttf);
+  font-family: "Planeswalker-bold-italic";
+  src: url(/css/Fonts/planewalker-font/PlanewalkerBoldItalic-p4qr.ttf);
 }
 
 @font-face {
-    font-family: "Planeswalker-italic";
-    src: url(/css/Fonts/planewalker-font/PlanewalkerItalic-DgM1.ttf);
+  font-family: "Planeswalker-italic";
+  src: url(/css/Fonts/planewalker-font/PlanewalkerItalic-DgM1.ttf);
 }
 
 /* End of font section */
 
-
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* body {
@@ -44,60 +43,60 @@ html {
 /* BODY SECTION */
 
 #title {
-    font-family: Magic-Medieval;
-    margin-bottom: 0px;
-    letter-spacing: 3px;
+  font-family: Magic-Medieval;
+  margin-bottom: 0px;
+  letter-spacing: 3px;
 }
 
 header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: Planeswalker;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Planeswalker;
+  text-align: center;
 }
 
 #legend {
-    position: absolute;
-    top: 9%;
-    left: 8%;
+  position: absolute;
+  top: 9%;
+  left: 8%;
 }
 
 #attribute-names {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 3.5fr;
-    font-family: Planeswalker-italic;
-    margin: 0 20px;
-    gap: 15px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 3.5fr;
+  font-family: Planeswalker-italic;
+  margin: 0 20px;
+  gap: 15px;
 }
 
 #attribute-names > h4 {
-    text-align: center;
+  text-align: center;
+  margin-top: 100px;
 }
 
 .grdRow {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 3.5fr;
-    gap: 15px;
-    margin: 0 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 3.5fr;
+  gap: 15px;
+  margin: 0 20px;
 }
 
 .grdRow > div {
-    font-family: "Varela Round";
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
+  font-family: "Varela Round";
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
-
 #win-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
 }
 
 /* END OF BODY SECTION */
@@ -109,12 +108,12 @@ header {
 } */
 
 #mini-art {
-    width: 10rem;
-    height: 6.5rem;
+  width: 10rem;
+  height: 6.5rem;
 }
 
 #full-card {
-    width: 40vmin;
+  width: 40vmin;
 }
 
 /* END OF INDIVIDUAL ELEMENTS */
@@ -123,19 +122,35 @@ header {
 
 /* ICEBOX Card box animation */
 
+
+#search-bar {
+    margin: 1rem;
+    /* ICEBOX: custom legendary border? */
+    border: 5px double black;
+    height: 2rem;
+    width: 10rem;
+}
+
+#error-message {
+    margin-top: 0;
+}
+
+#final-message {
+    text-align: center;
+}
+
 .font-target {
-    font-family: "Varela Round";
+  font-family: "Varela Round";
 }
 
 .true {
-    background-color: #66ff66;
+  background-color: #66ff66;
 }
 
 .partial {
-    background-color: #ffe066;
+  background-color: #ffe066;
 }
 
 .false {
-    background-color: #ff6666
-    ;
+  background-color: #ff6666;
 }
