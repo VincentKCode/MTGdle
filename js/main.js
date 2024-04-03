@@ -81,8 +81,20 @@ const cardList = [
         type: ['Instant'],
         legendary: false,
         origin: 'Alpha\n1993',
-        keywords: ['Burn', 'Any Target'],
+        keywords: ['Burn', '"Any Target"'],
         hint: '"____ the bird..."'
+    },
+    {
+        cardArtMini: '',
+        cardArtFull: '',
+        cardName: 'niv-mizzet parun',
+        color: ['Blue', 'Red'],
+        cmc: 6,
+        type: ['Creature'],
+        legendary: true,
+        origin: 'Guilds of Ravnica\n1993',
+        keywords: ['Flying', 'Burn', '"Any Target"', 'Can\'t be countered', 'Card Draw'],
+        hint: 'Most famous Ravnican Guild leader...'
     },
 ];
 
@@ -93,6 +105,11 @@ const ARR_VALUES = {
     exact: 'true',
     semi: 'partial',
     none: 'false',
+};
+const DATE_MATCH = {
+    older: '<-',
+    newer: '->',
+    same: '~~',
 };
 
 /*----- state variables -----*/
@@ -265,37 +282,30 @@ function handleColorOutput(newCard) {
     let clrCounter = 0;
     let sqrColor;
     for (let hidColor of hidCard.color) {
-        // console.log(newCard.color);
-        // console.log(hidCard.color);
-        // console.log(hidColor);
-        console.log(newCard.color.includes(hidColor));
         if (newCard.color.includes(hidColor)) {
             clrCounter++;
         }
     }
-    console.log(clrCounter);
-    switch (clrCounter) {
-        case 0:
-            sqrColor = ARR_VALUES.none;
-            break;
-        case clrCounter === hidCard.color.length && clrCounter === newCard.color.length:
-            sqrColor = ARR_VALUES.exact;
-            break;
-        case clrCounter !== hidCard.color.length || newCard.color.length !== hidCard.color.length:
-            sqrColor = ARR_VALUES.semi;
-            break;
-    }
+
+    if (clrCounter === 0) {
+        return sqrColor = ARR_VALUES.none;
+    } else if (clrCounter === hidCard.color.length && clrCounter === newCard.color.length) {
+        return sqrColor = ARR_VALUES.exact;
+    } else if (clrCounter !== hidCard.color.length || newCard.color.length !== hidCard.color.length) {
+        return sqrColor = ARR_VALUES.semi;
+    } else return alert('handleColorOutput() Error');
+
     return sqrColor; // not returning a value
 }
 
 // Row creation function
 function newRow(newCard) {
     let colors = handleColorOutput(newCard);
-    console.log(colors);
     let types;
     let keywords;
     const newSect = document.createElement('section');
     newSect.setAttribute('class', 'grdRow');
+    
     // add individual divs to show information 
     for (let i = 0; i <= 7; i++) { // 7 is max because there are 7 divs in the board display
         switch(i) {
@@ -316,6 +326,7 @@ function newRow(newCard) {
             case i = 2: {
                 const color = document.createElement('div'); // need check function for partial
                 color.setAttribute('class', colors);
+                color.setAttribute('class', 'card-box');
                 color.innerHTML = `<p>${newCard.color.join(' ')}<p>`;
                 newSect.appendChild(color);
                 break;
@@ -323,6 +334,7 @@ function newRow(newCard) {
             case i = 3: {
                 const cmc = document.createElement('div');
                 cmc.setAttribute('class', `${matchVals.cmc}`);
+                cmc.setAttribute('class', 'card-box');
                 cmc.innerHTML = `<p>${newCard.cmc}</p>`;
                 newSect.appendChild(cmc);
                 break;
@@ -337,6 +349,7 @@ function newRow(newCard) {
             case i = 5: {
                 const lgnd = document.createElement('div');
                 lgnd.setAttribute('class', `${matchVals.legendary}`);
+                lgnd.setAttribute('class', 'card-box');
                 lgnd.innerHTML = `<p>${newCard.legendary ? 'Yes' : 'No'}</p>`;
                 newSect.appendChild(lgnd);
                 break;
@@ -344,6 +357,7 @@ function newRow(newCard) {
             case i = 6: {
                 const origin = document.createElement('div');
                 origin.setAttribute('class', `${matchVals.origin}`);
+                origin.setAttribute('class', 'card-box');
                 origin.innerHTML = `<p>${newCard.origin}</p>`; // ICEBOX: add arrow for newer/older
                 newSect.appendChild(origin);
                 break;

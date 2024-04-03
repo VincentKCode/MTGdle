@@ -121,6 +121,12 @@ header {
 
 /* Attribute box classes */
 
+/* ICEBOX Card box animation */
+/* .card-box {
+    transition: transform 0.8s;
+    transform: rotateY(360deg);
+} */
+
 .true {
     background-color: #66ff66;
 }
