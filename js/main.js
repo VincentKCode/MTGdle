@@ -294,8 +294,6 @@ function handleColorOutput(newCard) {
     } else if (clrCounter !== hidCard.color.length || newCard.color.length !== hidCard.color.length) {
         return sqrColor = ARR_VALUES.semi;
     } else return alert('handleColorOutput() Error');
-
-    return sqrColor; // not returning a value
 }
 
 // Row creation function
@@ -303,6 +301,7 @@ function newRow(newCard) {
     let colors = handleColorOutput(newCard);
     let types;
     let keywords;
+    console.log(matchVals);
     const newSect = document.createElement('section');
     newSect.setAttribute('class', 'grdRow');
     
@@ -324,17 +323,15 @@ function newRow(newCard) {
                 break;
             }
             case i = 2: {
-                const color = document.createElement('div'); // need check function for partial
+                const color = document.createElement('div');
                 color.setAttribute('class', colors);
-                color.setAttribute('class', 'card-box');
-                color.innerHTML = `<p>${newCard.color.join(' ')}<p>`;
+                color.innerHTML = `<p>${newCard.color.join(' ')}</p>`;
                 newSect.appendChild(color);
                 break;
             }
             case i = 3: {
                 const cmc = document.createElement('div');
                 cmc.setAttribute('class', `${matchVals.cmc}`);
-                cmc.setAttribute('class', 'card-box');
                 cmc.innerHTML = `<p>${newCard.cmc}</p>`;
                 newSect.appendChild(cmc);
                 break;
@@ -349,7 +346,6 @@ function newRow(newCard) {
             case i = 5: {
                 const lgnd = document.createElement('div');
                 lgnd.setAttribute('class', `${matchVals.legendary}`);
-                lgnd.setAttribute('class', 'card-box');
                 lgnd.innerHTML = `<p>${newCard.legendary ? 'Yes' : 'No'}</p>`;
                 newSect.appendChild(lgnd);
                 break;
@@ -357,7 +353,6 @@ function newRow(newCard) {
             case i = 6: {
                 const origin = document.createElement('div');
                 origin.setAttribute('class', `${matchVals.origin}`);
-                origin.setAttribute('class', 'card-box');
                 origin.innerHTML = `<p>${newCard.origin}</p>`; // ICEBOX: add arrow for newer/older
                 newSect.appendChild(origin);
                 break;
