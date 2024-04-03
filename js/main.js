@@ -176,7 +176,7 @@ function renderHidCard() {
 }
 
 function renderGuessCount() {
-    
+    guessCountEl.forEach((countEl) => countEl.innerText = `${guessCount}`);
 }
 
 // probably not a render function
@@ -209,14 +209,12 @@ function nameFilter(cardGuess) {
         let listCard = card.cardName;
         // check for winner
         if (hidCard.cardName === cardGuess) {
-            // console.log('WINNER');
             guessCards.push(card);
             compareCards(card);
             // getWinner(); // run winner function
             break;
         // name input to card in list array
         } else if (listCard === cardGuess) {
-            // console.log(listCard);
             guessCards.push(card);
             compareCards(card);
         } 
@@ -226,7 +224,6 @@ function nameFilter(cardGuess) {
 
 // access attributes of wrong card guess for comparison
 function compareCards(cardObj) {
-    // console.log('path true');
     let arrMatches = { // send into compareArrs function
         sameColors: [],
         sameTypes: [],
@@ -238,14 +235,12 @@ function compareCards(cardObj) {
         // check for non array values
         if (cardObj[attr] === secAttrKey) {
             matchVals[`${attr}`] = true;
-            // console.log(`${attr} | ${cardObj[attr]} = true`);
             // check array for matches
         } else if (typeof(cardObj[attr]) === "object") {
             compareArrs(cardObj[attr], secAttrKey, attr, arrMatches)
             // no match
         } else {
             matchVals[`${attr}`] = false;
-            // console.log(`${attr} | ${cardObj[attr]} = false`);
         }
     }
     // send categories to matchVals object
@@ -296,12 +291,47 @@ function handleColorOutput(newCard) {
     } else return alert('handleColorOutput() Error');
 }
 
+function handleTypeOutput(newCard) {
+    let typeCounter = 0;
+    let sqrColor;
+    for (let hidType of hidCard.type) {
+        if (newCard.type.includes(hidType)) {
+            typeCounter++;
+        }
+    }
+
+    if (typeCounter === 0) {
+        return sqrColor = ARR_VALUES.none;
+    } else if (typeCounter === hidCard.type.length && typeCounter === newCard.type.length) {
+        return sqrColor = ARR_VALUES.exact;
+    } else if (typeCounter !== hidCard.type.length || newCard.type.length !== hidCard.type.length) {
+        return sqrColor = ARR_VALUES.semi;
+    } else return alert('handleTypeOutput() Error');
+}
+
+function handleKeywordsOutput(newCard) {
+    let kwCounter = 0;
+    let sqrColor;
+    for (let hidKeyword of hidCard.keywords) {
+        if (newCard.keywords.includes(hidKeyword)) {
+            kwCounter++;
+        }
+    }
+
+    if (kwCounter === 0) {
+        return sqrColor = ARR_VALUES.none;
+    } else if (kwCounter === hidCard.keywords.length && kwCounter === newCard.keywords.length) {
+        return sqrColor = ARR_VALUES.exact;
+    } else if (kwCounter !== hidCard.keywords.length || newCard.keywords.length !== hidCard.keywords.length) {
+        return sqrColor = ARR_VALUES.semi;
+    } else return alert('handleKeywordsOutput() Error');
+}
+
 // Row creation function
 function newRow(newCard) {
     let colors = handleColorOutput(newCard);
-    let types;
-    let keywords;
-    console.log(matchVals);
+    let types = handleTypeOutput(newCard);
+    let keywords = handleKeywordsOutput(newCard);
     const newSect = document.createElement('section');
     newSect.setAttribute('class', 'grdRow');
     
@@ -317,7 +347,7 @@ function newRow(newCard) {
             }
             case i = 1: {
                 const name = document.createElement('div');
-                name.setAttribute('class', `${matchVals.cardName}`);
+                name.setAttribute('class', matchVals.cardName);
                 name.innerHTML = `<p>${newCard.cardName}</p>`;
                 newSect.appendChild(name);
                 break;
@@ -338,7 +368,7 @@ function newRow(newCard) {
             }
             case i = 4: {
                 const type = document.createElement('div'); // needs check function for partial
-                type.setAttribute('class', 'card-box');
+                type.setAttribute('class', types);
                 type.innerHTML = `<p>${newCard.type.join(' ')}</p>`;
                 newSect.appendChild(type);
                 break;
@@ -359,7 +389,7 @@ function newRow(newCard) {
             }
             case i = 7: {
                 const keyword = document.createElement('div'); // needs check function for partial
-                keyword.setAttribute('class', 'card-box');
+                keyword.setAttribute('class', keywords);
                 keyword.innerHTML = `<p>${newCard.keywords.join(' / ')}</p>`;
                 newSect.appendChild(keyword);
                 break;

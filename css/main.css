@@ -123,6 +123,10 @@ header {
 
 /* ICEBOX Card box animation */
 
+.font-target {
+    font-family: "Varela Round";
+}
+
 .true {
     background-color: #66ff66;
 }
