@@ -1,42 +1,6 @@
 /* Custom Fonts */
 
-@font-face {
-  font-family: "Magic-Medieval";
-  src: url(/css/Fonts/magicmedieval-font/Magicmedieval-pRV1.ttf) format("truetype");
-}
 
-@font-face {
-  font-family: "Planeswalker-dings";
-  src: url(/css/Fonts/planewalker-dings-font/PlanewalkerDings-Pl9d.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "Planeswalker";
-  src: url(/css/Fonts/planewalker-font/Planewalker-38m6.ttf) format("truetype");
-  src: url(/css/Fonts/planewalker-font/Planewalker-38m6.ttf) format("truetype"),
-        url(css/Fonts/planewalker-font/Planewalker.eot) format("embedded-opentype"),
-        url(css/Fonts/planewalker-font/Planewalker.svg) format("svg"),
-        url(css/Fonts/planewalker-font/Planewalker.woff) format("woff"),
-        url(css/Fonts/planewalker-font/Planewalker.woff2) format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Planeswalker-bold";
-  src: url(/css/Fonts/planewalker-font/PlanewalkerBold-xZj5.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "Planeswalker-bold-italic";
-  src: url(/css/Fonts/planewalker-font/PlanewalkerBoldItalic-p4qr.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "Planeswalker-italic";
-  src: url(/css/Fonts/planewalker-font/PlanewalkerItalic-DgM1.ttf) format("truetype");
-}
 
 /* End of font section */
 
@@ -51,7 +15,7 @@ html {
 /* BODY SECTION */
 
 #title {
-  font-family: Magic-Medieval;
+  font-family: "Beleren Bold";
   margin-bottom: 0px;
   letter-spacing: 3px;
 }
@@ -61,7 +25,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Planeswalker;
+  font-family: "Beleren Bold";
   text-align: center;
 }
 
