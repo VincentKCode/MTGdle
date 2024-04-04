@@ -24,6 +24,7 @@
       </h3>
       <input id="search-bar" type="text" placeholder="Enter a card name..." />
       <h4 id="error-message">That name is not valid or hasn't been added to the guess list yet...</h4>
+      <h4 id="double-guess">You've already tried that</h4>
       <button>Play Again</button>
       <h3>Remaining Guesses: <span class="guesses-remaining font-target"></span></h3>
     </header>
@@ -54,13 +55,20 @@
       <h4>Original Release</h4>
       <h4>Keywords/Card Effects</h4>
     </div>
-    <!-- Guessed card grid will go here -->
     <div id="card-grid">
+      <!-- Guessed card grid will go here -->
     </div>
     <!-- Final screen revealed after win -->
     <div id="win-screen">
       <h2 id="final-message"></h2>
       <img id="full-card" />
     </div>
+    <div id="card-index">
+      <!-- display for cards currently in the game -->
+
+    </div>
+    <footer>
+      
+    </footer>
   </body>
 </html>

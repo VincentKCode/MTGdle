@@ -133,6 +133,7 @@ const DATE_MATCH = {
 /*----- state variables -----*/
 // let board; // i dont think this is needed
 let failName;
+let cardPresent;
 let ignoreText;
 let guessCount;
 let wrongGuessCount;
@@ -153,6 +154,7 @@ const errorMsgEl = document.getElementById("error-message");
 
 /*----- event listeners -----*/
 textInputEl.addEventListener("keypress", handleGuess);
+replayBtnEl.addEventListener("click", init);
 
 /*----- initialize functions -----*/
 init();
@@ -160,6 +162,7 @@ init();
 function init() {
   // board = []; // will contain img for small art and obj for each attribute being compared
   failName = 0;
+  cardPresent = 0;
   ignoreText = null;
   guessCount = 0;
   MAX_GUESS = 5; // ICEBOX: let player adjust total or disable for easy mode
@@ -190,12 +193,17 @@ function render() {
   // renderCardSheet(); // card list cheat sheet (might be iceboxed)
   renderDropMenu(); // card dropdown menu when player types
   renderMessage();
+  renderReset();
+}
+
+function renderReset() {
+    if (!winner && !guessCount) cardGridEl.innerHTML = '';
 }
 
 function renderBoard() {
   let newCard = guessCards[guessCards.length - 1]; // returning most recent guess even if name is not valid | ERROR 1
   // create new row in grid - return at start of game
-  if (guessCards.length !== 0 && !failName) {
+  if (guessCards.length !== 0 && !failName && !cardPresent) {
     newRow(newCard);
   } else nameFailMsg();
   matchVals = {}; // reset matchVals for next input
@@ -227,7 +235,11 @@ function renderMessage() {
             finalMsgEl.innerHTML = 'Sorry, out of guesses...<br>Try easy mode for more guesses';
             break;
         case 1:
-            finalMsgEl.innerHTML = `Congratulations, you guessed the card!<br>Total guesses: ${guessCount}`
+            finalMsgEl.innerHTML = `Congratulations, you guessed the card!<br>Total guesses: ${guessCount}`;
+            break;
+        default:
+            finalMsgEl.innerHTML = '';
+            break;
     }
     nameFailMsg();
 }
@@ -239,10 +251,10 @@ function nameFailMsg() { // show error msg if name is invalid
 function handleGuess(evt) {
   if (evt.key !== "Enter" || winner) return;
   evt.preventDefault();
-  guessCount++;
   let cardGuess = textInputEl.value.toLowerCase();
   // alert(typeof(cardGuess)); // placeholder function test
   nameFilter(cardGuess); // needs to cancel if name input is invalid/not in list | ERROR 1
+  textInputEl.value = '';
   render();
   return cardGuess;
 }
@@ -257,6 +269,7 @@ function nameFilter(cardGuess) {
     let listCard = card.cardName;
     // check for winner
     if (hidCard.cardName === cardGuess && listCard === cardGuess) {
+        guessCount++;
         guessCards.push(card);
         compareCards(card);
         getWinner(); // run winner function
@@ -264,6 +277,8 @@ function nameFilter(cardGuess) {
         break;
       // name input to card in list array
     } else if (listCard === cardGuess) {
+        if (doubleGuess(cardGuess)) break;
+        guessCount++;
         wrongGuessCount--;
         guessCards.push(card);
         compareCards(card);
@@ -281,6 +296,15 @@ function verifyName(cardGuess) { // make sure name is in the list
     });
     // if (!nameIsPresent) console.log('name failed');
     return nameIsPresent;
+}
+
+function doubleGuess(cardGuess) {
+    cardPresent = 0;
+    if (guessCards.length === 0) return cardPresent;
+    for (let card in guessCards) {
+        if (guessCards[card].cardName === cardGuess) cardPresent = 1;
+    }
+    return cardPresent;
 }
 
 // access attributes of wrong card guess for comparison
