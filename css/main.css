@@ -12,6 +12,7 @@
 
 @font-face {
   font-family: "Planeswalker";
+  src: url(/css/Fonts/planewalker-font/Planewalker-38m6.ttf) format("truetype");
   src: url(/css/Fonts/planewalker-font/Planewalker-38m6.ttf) format("truetype"),
         url(css/Fonts/planewalker-font/Planewalker.eot) format("embedded-opentype"),
         url(css/Fonts/planewalker-font/Planewalker.svg) format("svg"),
