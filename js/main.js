@@ -99,7 +99,7 @@ const cardList = [
   {
     cardArtMini: "images/niv-mizzet-parun-CUT.jpg",
     cardArtFull: "images/niv-mizzet-parun.png",
-    cardName: "niv-mizzet parun",
+    cardName: "niv mizzet parun",
     color: ["Blue", "Red"],
     cmc: 6,
     type: ["Creature"],
@@ -131,7 +131,6 @@ const DATE_MATCH = {
 };
 
 /*----- state variables -----*/
-// let board; // i dont think this is needed
 let failName;
 let cardPresent;
 let ignoreText;
@@ -139,7 +138,6 @@ let guessCount;
 let wrongGuessCount;
 let winner;
 let hidCard; // Hidden card
-// let trueAttr; // attributes of hidden card to compare (probably unnecessary)
 let guessCards; // guessed cards will be saved in an array, reference guesses by idx or name
 let matchVals; // Matching values of card (might be redundant)
 
@@ -167,7 +165,6 @@ popoutBar.addEventListener("click", function() {
 init();
 
 function init() {
-  // board = []; // will contain img for small art and obj for each attribute being compared
   failName = 0;
   cardPresent = 0;
   ignoreText = null;
@@ -195,9 +192,7 @@ function rndCardPicker() {
 /*----- render functions -----*/
 function render() {
   renderBoard(); // render guessed card squares (try to render guessed card at the end)
-  renderHidCard(); // stay hidden until winner = 1
   renderGuessCount();
-  // renderCardSheet(); // card list cheat sheet (might be iceboxed)
   renderDropMenu(); // card dropdown menu when player types
   renderMessage();
   renderReset();
@@ -216,8 +211,6 @@ function renderBoard() {
   matchVals = {}; // reset matchVals for next input
   winner ? replayBtnEl.style.visibility = 'visible' : replayBtnEl.style.visibility = 'hidden';
 }
-
-function renderHidCard() {}
 
 function renderGuessCount() {
     let remainderDisplay = wrongGuessCount;
@@ -249,6 +242,7 @@ function renderMessage() {
             break;
     }
     nameFailMsg();
+    (cardPresent) ? repeatMsgEl.style.visibility = 'visible' : repeatMsgEl.style.visibility = 'hidden';
 }
 
 function nameFailMsg() { // show error msg if name is invalid
@@ -292,7 +286,6 @@ function nameFilter(cardGuess) {
         if (guessCount > MAX_GUESS || wrongGuessCount === 0) return getWinner();
     }
   }
-    //  console.log(cardGuess);
      return cardGuess;
 }
 
@@ -301,7 +294,6 @@ function verifyName(cardGuess) { // make sure name is in the list
     cardList.forEach(function(card) {
         if (card.cardName === cardGuess) return nameIsPresent++;
     });
-    // if (!nameIsPresent) console.log('name failed');
     return nameIsPresent;
 }
 
@@ -358,9 +350,6 @@ function compareArrs(attrArray, secArray, refAttr, arrMatches) {
       if (refAttr === "type") arrMatches.sameTypes.push(`${secArray[i]}`);
       if (refAttr === "keywords")
         arrMatches.sameKeywords.push(`${secArray[i]}`);
-
-      // console.log(`${refAttr} includes ${secArray[i]}`);
-      // console.log(attrArray);
     }
     i++;
   }
@@ -439,11 +428,22 @@ function handleKeywordsOutput(newCard) {
   } else return alert("handleKeywordsOutput() Error");
 }
 
+function nameCorrector(newCard) {
+    let name = newCard.cardName.split(' ');
+    for (let i = 0; i < name.lenth; i++) {
+        name[i][0] = name[i][0].toUpperCase();
+    };
+    // name.join(' ');
+    return name.join(' ');
+}
+
 // Row creation function
 function newRow(newCard) {
+    console.log(nameCorrector(newCard));
   let colors = handleColorOutput(newCard);
   let types = handleTypeOutput(newCard);
   let keywords = handleKeywordsOutput(newCard);
+//   let nameFix = nameCorrector(newCard);
   const newSect = document.createElement("section");
   newSect.setAttribute("class", "grdRow");
 
@@ -511,22 +511,3 @@ function newRow(newCard) {
   }
   cardGridEl.appendChild(newSect);
 }
-
-// card index menu stuff
-
-// let clickStatus = 1;
-
-// function expandList() {
-//     clickStatus *= -1;
-    
-//     switch(clickStatus) {
-//         case 1:
-//             console.log('active');
-//             indexMenu.setAttribute('class', '.inactive');
-//             break;
-//         case -1:
-//             console.log('inactive');
-//             indexMenu.setAttribute('class', '.active');
-//             break;
-//     }
-// }

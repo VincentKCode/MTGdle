@@ -65,7 +65,7 @@ header {
   width: 15rem;
   height: 20rem;
   top: 5vmin;
-  left: 8vmin;
+  left: 8vmax;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 3fr 3fr 3fr;
@@ -173,6 +173,10 @@ header {
 
 #full-card {
   width: 40vmin;
+}
+
+#index-card {
+    width: 25vmin;
 }
 
 /* END OF INDIVIDUAL ELEMENTS */
