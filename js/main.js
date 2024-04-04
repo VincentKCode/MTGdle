@@ -151,10 +151,17 @@ const cardGridEl = document.getElementById("card-grid");
 const finalMsgEl = document.getElementById("final-message");
 const winCardEl = document.getElementById("full-card");
 const errorMsgEl = document.getElementById("error-message");
+const repeatMsgEl = document.getElementById("double-guess");
+const popoutBar = document.getElementById("popout-bar");
+const indexMenu = document.getElementById("card-index");
 
 /*----- event listeners -----*/
 textInputEl.addEventListener("keypress", handleGuess);
 replayBtnEl.addEventListener("click", init);
+popoutBar.addEventListener("click", function() {
+    indexMenu.classList.toggle("active");
+    indexMenu.classList.toggle("inactive");
+});
 
 /*----- initialize functions -----*/
 init();
@@ -504,3 +511,22 @@ function newRow(newCard) {
   }
   cardGridEl.appendChild(newSect);
 }
+
+// card index menu stuff
+
+// let clickStatus = 1;
+
+// function expandList() {
+//     clickStatus *= -1;
+    
+//     switch(clickStatus) {
+//         case 1:
+//             console.log('active');
+//             indexMenu.setAttribute('class', '.inactive');
+//             break;
+//         case -1:
+//             console.log('inactive');
+//             indexMenu.setAttribute('class', '.active');
+//             break;
+//     }
+// }
