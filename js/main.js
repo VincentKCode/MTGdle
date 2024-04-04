@@ -183,7 +183,7 @@ function rndCardPicker() {
   // WORKING
   let rndCardIdx = Math.floor(Math.random() * cardList.length);
   let rndCard = cardList[rndCardIdx];
-  alert(cardList[rndCardIdx].cardName);
+  // alert(cardList[rndCardIdx].cardName);
   winCardEl.setAttribute('src', rndCard.cardArtFull);
   winCardEl.style.visibility = 'hidden';
   return rndCard;
