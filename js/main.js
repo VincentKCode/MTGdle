@@ -146,6 +146,7 @@ let textInputEl = document.getElementById("search-bar");
 const guessCountEl = document.querySelector(".guesses-remaining");
 const replayBtnEl = document.querySelector("button");
 const cardGridEl = document.getElementById("card-grid");
+const winScreenEl = document.getElementById('win-screen');
 const finalMsgEl = document.getElementById("final-message");
 const winCardEl = document.getElementById("full-card");
 const errorMsgEl = document.getElementById("error-message");
@@ -182,7 +183,7 @@ function rndCardPicker() {
   // WORKING
   let rndCardIdx = Math.floor(Math.random() * cardList.length);
   let rndCard = cardList[rndCardIdx];
-//   alert(cardList[rndCardIdx].cardName);
+  alert(cardList[rndCardIdx].cardName);
   winCardEl.setAttribute('src', rndCard.cardArtFull);
   winCardEl.style.visibility = 'hidden';
   return rndCard;
@@ -200,6 +201,7 @@ function render() {
 
 function renderReset() {
     if (!winner && !guessCount) cardGridEl.innerHTML = '';
+    textInputEl.value = '';
 }
 
 function renderBoard() {
@@ -207,14 +209,25 @@ function renderBoard() {
   // create new row in grid - return at start of game
   if (guessCards.length !== 0 && !failName && !cardPresent) {
     newRow(newCard);
-  } else nameFailMsg();
+  } else {
+    nameFailMsg();
+  }
   matchVals = {}; // reset matchVals for next input
-  winner ? replayBtnEl.style.visibility = 'visible' : replayBtnEl.style.visibility = 'hidden';
+  if (winner) {
+    replayBtnEl.style.visibility = 'visible';
+    winScreenEl.style.visibility = 'visible';
+    winCardEl.style.visibility = 'visible';
+  } else {
+    replayBtnEl.style.visibility = 'hidden';
+    winScreenEl.style.visibility = 'hidden';
+  }
+  // winner ? replayBtnEl.style.visibility = 'visible' : replayBtnEl.style.visibility = 'hidden';
+  // winner ? winScreenEl.style.visibility = 'visible' : winScreenEl.style.visibility = 'hidden';
 }
 
 function renderGuessCount() {
-    let remainderDisplay = wrongGuessCount;
-    guessCountEl.innerHTML = `${remainderDisplay}`;
+  let remainderDisplay = wrongGuessCount;
+  guessCountEl.innerHTML = `${remainderDisplay}`;
 }
 
 // probably not a render function
@@ -232,7 +245,7 @@ function getWinner() {
 function renderMessage() {
     switch(winner) {
         case -1:
-            finalMsgEl.innerHTML = 'Sorry, out of guesses...<br>Try easy mode for more guesses';
+            finalMsgEl.innerHTML = 'Sorry, out of guesses<br>try again...';
             break;
         case 1:
             finalMsgEl.innerHTML = `Congratulations, you guessed the card!<br>Total guesses: ${guessCount}`;
@@ -243,6 +256,7 @@ function renderMessage() {
     }
     nameFailMsg();
     (cardPresent) ? repeatMsgEl.style.visibility = 'visible' : repeatMsgEl.style.visibility = 'hidden';
+    cardPresent = 0;
 }
 
 function nameFailMsg() { // show error msg if name is invalid
@@ -454,6 +468,7 @@ function newRow(newCard) {
       case (i = 0): {
         const art = document.createElement("div");
         art.setAttribute("class", "card-box");
+        art.classList.add('box-animation');
         art.innerHTML = `<img id="mini-art" src="${newCard.cardArtMini}">`;
         newSect.appendChild(art);
         break;
@@ -461,6 +476,7 @@ function newRow(newCard) {
       case (i = 1): {
         const name = document.createElement("div");
         name.setAttribute("class", matchVals.cardName);
+        name.setAttribute('id', 'grid-animation');
         name.innerHTML = `<p>${newCard.cardName}</p>`;
         newSect.appendChild(name);
         break;
@@ -468,6 +484,7 @@ function newRow(newCard) {
       case (i = 2): {
         const color = document.createElement("div");
         color.setAttribute("class", colors);
+        color.setAttribute('id', 'grid-animation');
         color.innerHTML = `<p>${newCard.color.join(" ")}</p>`;
         newSect.appendChild(color);
         break;
@@ -475,6 +492,7 @@ function newRow(newCard) {
       case (i = 3): {
         const cmc = document.createElement("div");
         cmc.setAttribute("class", `${matchVals.cmc}`);
+        cmc.setAttribute('id', 'grid-animation');
         cmc.innerHTML = `<p>${newCard.cmc}</p>`;
         newSect.appendChild(cmc);
         break;
@@ -482,6 +500,7 @@ function newRow(newCard) {
       case (i = 4): {
         const type = document.createElement("div"); // needs check function for partial
         type.setAttribute("class", types);
+        type.setAttribute('id', 'grid-animation');
         type.innerHTML = `<p>${newCard.type.join(" ")}</p>`;
         newSect.appendChild(type);
         break;
@@ -489,6 +508,7 @@ function newRow(newCard) {
       case (i = 5): {
         const lgnd = document.createElement("div");
         lgnd.setAttribute("class", `${matchVals.legendary}`);
+        lgnd.setAttribute('id', 'grid-animation');
         lgnd.innerHTML = `<p>${newCard.legendary ? "Yes" : "No"}</p>`;
         newSect.appendChild(lgnd);
         break;
@@ -496,6 +516,7 @@ function newRow(newCard) {
       case (i = 6): {
         const origin = document.createElement("div");
         origin.setAttribute("class", `${matchVals.origin}`);
+        origin.setAttribute('id', 'grid-animation');
         origin.innerHTML = `<p>${newCard.origin}</p>`; // ICEBOX: add arrow for newer/older
         newSect.appendChild(origin);
         break;
@@ -503,11 +524,12 @@ function newRow(newCard) {
       case (i = 7): {
         const keyword = document.createElement("div"); // needs check function for partial
         keyword.setAttribute("class", keywords);
+        keyword.setAttribute('id', 'grid-animation');
         keyword.innerHTML = `<p>${newCard.keywords.join(" / ")}</p>`;
         newSect.appendChild(keyword);
         break;
       }
     }
   }
-  cardGridEl.appendChild(newSect);
+  cardGridEl.prepend(newSect);
 }

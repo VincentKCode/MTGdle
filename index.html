@@ -47,10 +47,16 @@
       font-weight: bold;
       text-rendering: optimizeLegibility;
     }
+    body {
+      background-image: url("images/Background Images/WP1.jpg");
+      background-attachment: fixed;
+      background-size: 100%;
+    }
     </style>
     <script defer src="js/main.js"></script>
     <title>Document</title>
   </head>
+
   <body>
     <!-- Title and information zone -->
     <header>
@@ -60,7 +66,7 @@
         effects, etc...
       </h3>
       <input id="search-bar" class="font-target" type="text" placeholder="Enter a card name..." />
-      <h4 id="error-message">That name is not valid or hasn't been added to the guess list yet...</h4>
+      <h4 id="error-message">That name is not valid or hasn't been added to the guess list yet...<br>Check the index at the bottom for spelling</h4>
       <h4 id="double-guess">You've already tried that</h4>
       <button>Play Again</button>
       <h3>Remaining Guesses: <span class="guesses-remaining"></span></h3>
