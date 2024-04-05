@@ -25,21 +25,24 @@ _These values may change in the future based on feedback_
 ## Game Screenshots
 
 ### Main menu screen
-![main game screen](images/Readme photos/Menu_Screen.png)
-For the first iterration of the game, the menu is very simple, with an input field and legend showing the box indicators.
+![main game screen](images/Readme-photos/Menu_Screen.png)
+
+In the initial version of the game, the menu is very simple, with an input field and legend showing the box indicators.
 
 ### Winning card
-![winner box](images/Readme photos/Win_Screen.png)
+![winner box](images/Readme-photos/Win_Screen.png)
+
 The initial winning/losing box is simple at the moment, but I hope to add reference links to sites like Scryfall and TCGplayer for more card information and price.
 
 ### Card index
-![card referece photos](images/Readme photos/Card_Index.png)
-_test card list_
+![card referece photos](images/Readme-photos/Index_Menu.png)
+
 Since there isn't an autocomplete menu when typing, a card index is present to help players know what cards are in the game and to help those who may not be aware of some cards.
 
 ### Error messages
-![invalid name message](images/Readme photos/Invalid_name_msg.png)
-![repeat guess message](images/Readme photos/Repeat_guess_msg.png)
+![invalid name message](images/Readme-photos/Invalid_name_msg.png)
+![repeat guess message](images/Readme-photos/Repeat_guess_msg.png)
+
 An error will appear if the name entered is not in the card library or was already guessed.
 
 
