@@ -11,47 +11,54 @@
       href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="images/Favicon/favi M.png" />
     <style>
       /* Beleren Bold */
       @font-face {
-      font-family: "Beleren Bold";
-      src:
-        url("css/Fonts/typeface-beleren-bold-master/Beleren2016-Bold.woff") format("woff"),
-        url("css/Fonts/typeface-beleren-bold-master/Beleren2016-Bold.ttf") format("truetype"),
-        url("css/Fonts/typeface-beleren-bold-master/Beleren2016-Bold.svg") format("svg");
-      font-style: normal;
-      font-weight: bold;
-      text-rendering: optimizeLegibility;
-    }
+        font-family: "Beleren Bold";
+        src: url("css/Fonts/typeface-beleren-bold-master/Beleren2016-Bold.woff")
+            format("woff"),
+          url("css/Fonts/typeface-beleren-bold-master/Beleren2016-Bold.ttf")
+            format("truetype"),
+          url("css/Fonts/typeface-beleren-bold-master/Beleren2016-Bold.svg")
+            format("svg");
+        font-style: normal;
+        font-weight: bold;
+        text-rendering: optimizeLegibility;
+      }
 
-    /* Beleren SmallCaps Bold */
-    @font-face {
-      font-family: "Beleren SmallCaps Bold";
-      src:
-        url("css/Fonts/typeface-beleren-bold-master/Beleren2016SmallCaps-Bold.woff") format("woff"),
-        url("css/Fonts/typeface-beleren-bold-master/Beleren2016SmallCaps-Bold.ttf") format("truetype"),
-        url("css/Fonts/typeface-beleren-bold-master/Beleren2016SmallCaps-Bold.svg") format("svg");
-      font-style: normal;
-      font-weight: bold;
-      text-rendering: optimizeLegibility;
-    }
+      /* Beleren SmallCaps Bold */
+      @font-face {
+        font-family: "Beleren SmallCaps Bold";
+        src: url("css/Fonts/typeface-beleren-bold-master/Beleren2016SmallCaps-Bold.woff")
+            format("woff"),
+          url("css/Fonts/typeface-beleren-bold-master/Beleren2016SmallCaps-Bold.ttf")
+            format("truetype"),
+          url("css/Fonts/typeface-beleren-bold-master/Beleren2016SmallCaps-Bold.svg")
+            format("svg");
+        font-style: normal;
+        font-weight: bold;
+        text-rendering: optimizeLegibility;
+      }
 
-    /* Beleren SmallCaps BoldItalic */
-    @font-face {
-      font-family: "Beleren SmallCaps BoldItalic";
-      src:
-        url("css/Fonts/typeface-beleren-bold-master/Beleren2016SmallCaps-BoldItalic.woff") format("woff"),
-        url("css/Fonts/typeface-beleren-bold-master/Beleren2016SmallCaps-BoldItalic.ttf") format("truetype"),
-        url("css/Fonts/typeface-beleren-bold-master/Beleren2016SmallCaps-BoldItalic.svg") format("svg");
-      font-style: italic;
-      font-weight: bold;
-      text-rendering: optimizeLegibility;
-    }
-    body {
-      background-image: url("images/Background Images/WP1.jpg");
-      background-attachment: fixed;
-      background-size: 100%;
-    }
+      /* Beleren SmallCaps BoldItalic */
+      @font-face {
+        font-family: "Beleren SmallCaps BoldItalic";
+        src: url("css/Fonts/typeface-beleren-bold-master/Beleren2016SmallCaps-BoldItalic.woff")
+            format("woff"),
+          url("css/Fonts/typeface-beleren-bold-master/Beleren2016SmallCaps-BoldItalic.ttf")
+            format("truetype"),
+          url("css/Fonts/typeface-beleren-bold-master/Beleren2016SmallCaps-BoldItalic.svg")
+            format("svg");
+        font-style: italic;
+        font-weight: bold;
+        text-rendering: optimizeLegibility;
+      }
+      body {
+        background-image: url("images/Background Images/WP1.jpg");
+        background-attachment: fixed;
+        background-size: 100%;
+      }
     </style>
     <script defer src="js/main.js"></script>
     <title>Document</title>
@@ -65,8 +72,16 @@
         Guess the name of the card<br />based on it's color, cost, type,
         effects, etc...
       </h3>
-      <input id="search-bar" class="font-target" type="text" placeholder="Enter a card name..." />
-      <h4 id="error-message">That name is not valid or hasn't been added to the guess list yet...<br>Check the index at the bottom for spelling</h4>
+      <input
+        id="search-bar"
+        class="font-target"
+        type="text"
+        placeholder="Enter a card name..."
+      />
+      <h4 id="error-message">
+        That name is not valid or hasn't been added to the guess list yet...<br />Check
+        the index at the bottom for spelling
+      </h4>
       <h4 id="double-guess">You've already tried that</h4>
       <button>Play Again</button>
       <h3>Remaining Guesses: <span class="guesses-remaining"></span></h3>
@@ -108,22 +123,88 @@
     </div>
     <div id="card-index" class="inactive">
       <div id="popout-bar">
-        <img src="css/Utility Icons/arrows.png" alt="Open close arrows" id="arrows">
+        <img
+          src="css/Utility Icons/arrows.png"
+          alt="Open close arrows"
+          id="arrows"
+        />
       </div>
       <!-- display for cards currently in the game -->
       <div id="card-photos">
-        <img src="images/black-lotus.png" alt="Black Lotus" id="index-card">
-        <img src="images/sol-ring.png" alt="Sol Ring" id="index-card">
-        <img src="images/lightning-bolt.png" alt="Lightning Bolt" id="index-card">
-        <img src="images/swords-to-plowshares.png" alt="Swords to Plowshares" id="index-card">
-        <img src="images/rhystic-study.png" alt="Rhystic Study" id="index-card">
-        <img src="images/niv-mizzet-parun.png" alt="Niv Mizzet Parun" id="index-card">
-        <img src="images/griselbrand.png" alt="Griselbrand" id="index-card">
-        <!-- <img src="" alt="" id="full-card"> -->
+        <img src="images/armageddon.png" alt="Armageddon" id="index-card" />
+        <img src="images/black-lotus.png" alt="Black Lotus" id="index-card" />
+        <img src="images/counterspell.png" alt="Counterspell" id="index-card" />
+        <img
+          src="images/cyclonic-rift.png"
+          alt="Cyclonic Rift"
+          id="index-card"
+        />
+        <img src="images/damnation.png" alt="Damnation" id="index-card" />
+        <img
+          src="images/emrakul-the-aeons-torn.png"
+          alt="Emrakul the Aeons Torn"
+          id="index-card"
+        />
+        <img
+          src="images/evolving-wilds.png"
+          alt="Evolving Wilds"
+          id="index-card"
+        />
+        <img src="images/griselbrand.png" alt="Griselbrand" id="index-card" />
+        <img
+          src="images/jeweled-lotus.png"
+          alt="Jeweled Lotus"
+          id="index-card"
+        />
+        <img
+          src="images/lightning-bolt.png"
+          alt="Lightning Bolt"
+          id="index-card"
+        />
+        <img src="images/lotus-field.png" alt="Lotus Field" id="index-card" />
+        <img
+          src="images/mystic-sanctuary.png"
+          alt="Mystic Sanctuary"
+          id="index-card"
+        />
+        <img
+          src="images/mystical-tutor.png"
+          alt="Mystical Tutor"
+          id="index-card"
+        />
+        <img
+          src="images/niv-mizzet-parun.png"
+          alt="Niv Mizzet Parun"
+          id="index-card"
+        />
+        <img
+          src="images/otawara-soaring-city.png"
+          alt="Otawara Soaring City"
+          id="index-card"
+        />
+        <img
+          src="images/rhystic-study.png"
+          alt="Rhystic Study"
+          id="index-card"
+        />
+        <img src="images/shahrazad.png" alt="Shahrazad" id="index-card" />
+        <img src="images/siege-rhino.png" alt="Siege Rhino" id="index-card" />
+        <img src="images/sol-ring.png" alt="Sol Ring" id="index-card" />
+        <img
+          src="images/swords-to-plowshares.png"
+          alt="Swords to Plowshares"
+          id="index-card"
+        />
+        <img src="images/tarmogoyf.png" alt="Tarmogoyf" id="index-card" />
+        <img src="images/thoughtseize.png" alt="Thoughtseize" id="index-card" />
+        <img src="images/the-one-ring.png" alt="The One Ring" id="index-card" />
+        <img
+          src="images/vampiric-tutor.png"
+          alt="Vampiric Tutor"
+          id="index-card"
+        />
+        <img src="images/wrath-of-god.png" alt="Wrath of God" id="index-card" />
       </div>
     </div>
-    <footer>
-      
-    </footer>
   </body>
 </html>

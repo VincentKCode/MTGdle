@@ -99,7 +99,7 @@ const cardList = [
   {
     cardArtMini: "images/niv-mizzet-parun-CUT.jpg",
     cardArtFull: "images/niv-mizzet-parun.png",
-    cardName: "niv mizzet parun",
+    cardName: "niv-mizzet parun",
     color: ["Blue", "Red"],
     cmc: 6,
     type: ["Creature"],
@@ -113,6 +113,223 @@ const cardList = [
       "Card Draw",
     ],
     hint: "Most famous Ravnican Guild leader...",
+  },
+  {
+    cardArtMini: "images/counterspell-CUT.jpg",
+    cardArtFull: "images/counterspell.png",
+    cardName: "counterspell",
+    color: ["Blue"],
+    cmc: 1,
+    type: ["Instant"],
+    legendary: false,
+    origin: "Alpha - 1993",
+    keywords: ["Counterspell"],
+    hint: "Exactly what Blue is known for...",
+  },
+  {
+    cardArtMini: "images/thoughtseize-CUT.jpg",
+    cardArtFull: "images/thoughtseize.png",
+    cardName: "thoughtseize",
+    color: ["Black"],
+    cmc: 1,
+    type: ["Sorcery"],
+    legendary: false,
+    origin: "Lorwyn - 2007",
+    keywords: ["Target player", "Self-burn", "Discard"],
+    hint: "Infamous turn one play in Pioneer for Black...",
+  },
+  {
+    cardArtMini: "images/cyclonic-rift-CUT.jpg",
+    cardArtFull: "images/cyclonic-rift.png",
+    cardName: "cyclonic rift",
+    color: ["Blue"],
+    cmc: 2,
+    type: ["Instant"],
+    legendary: false,
+    origin: "Return to Ravnica - 2012",
+    keywords: ["Bounce", "Board-wipe", "Overload"],
+    hint: "One of the best Blue board wipes in commander...",
+  },
+  {
+    cardArtMini: "images/wrath-of-god-CUT.jpg",
+    cardArtFull: "images/wrath-of-god.png",
+    cardName: "wrath of god",
+    color: ["White"],
+    cmc: 4,
+    type: ["Sorcery"],
+    legendary: false,
+    origin: "Alpha - 1993",
+    keywords: ["Board-wipe"],
+    hint: "",
+  },
+  {
+    cardArtMini: "images/damnation-CUT.jpg",
+    cardArtFull: "images/damnation.png",
+    cardName: "damnation",
+    color: ["Black"],
+    cmc: 4,
+    type: ["Sorcery"],
+    legendary: false,
+    origin: "Planar Chaos - 2007",
+    keywords: ["Board-wipe"],
+    hint: "Wrath's younger sibling...",
+  },
+  {
+    cardArtMini: "images/armageddon-CUT.jpg",
+    cardArtFull: "images/armageddon.png",
+    cardName: "armageddon",
+    color: ["White"],
+    cmc: 4,
+    type: ["Sorcery"],
+    legendary: false,
+    origin: "Alpha - 1993",
+    keywords: ["Board-wipe", "Land Destruction"],
+    hint: "Breaks one of the unwritten rules of commander...",
+  },
+  {
+    cardArtMini: "images/vampiric-tutor-CUT.jpg",
+    cardArtFull: "images/vampiric-tutor.png",
+    cardName: "vampiric tutor",
+    color: ["Black"],
+    cmc: 1,
+    type: ["Instant"],
+    legendary: false,
+    origin: "Visions - 1996",
+    keywords: ["self-burn", "Tutor"],
+    hint: "One of the original tutors...",
+  },
+  {
+    cardArtMini: "images/mystical-tutor-CUT.jpg",
+    cardArtFull: "images/mystical-tutor.png",
+    cardName: "mystical tutor",
+    color: ["Blue"],
+    cmc: 1,
+    type: ["Instant"],
+    legendary: false,
+    origin: "Mirage - 1996",
+    keywords: ["Reveal", "Tutor"],
+    hint: "A commander combo player's best friend...",
+  },
+  {
+    cardArtMini: "images/emrakul-the-aeons-torn-CUT.jpg",
+    cardArtFull: "images/emrakul-the-aeons-torn.png",
+    cardName: "emrakul, the aeons torn",
+    color: ["Colorless"],
+    cmc: 15,
+    type: ["Creature"],
+    legendary: true,
+    origin: "Rise of the Eldrazi - 2010",
+    keywords: [
+      "Flying",
+      "Protection",
+      "Annihilator",
+      "Can't be countered",
+      "Extra turn",
+      "Graveyard Shuffle",
+    ],
+    hint: "Wishes they could be in a commander deck...",
+  },
+  {
+    cardArtMini: "images/siege-rhino-CUT.jpg",
+    cardArtFull: "images/siege-rhino.png",
+    cardName: "siege rhino",
+    color: ["White", "Black", "Green"],
+    cmc: 4,
+    type: ["Creature"],
+    legendary: false,
+    origin: "Khans of Tarkir - 2010",
+    keywords: ["Trample", "Burn", "Life Gain"],
+    hint: "Wishes they could be in a commander deck...",
+  },
+  {
+    cardArtMini: "images/tarmogoyf-CUT.jpg",
+    cardArtFull: "images/tarmogoyf.png",
+    cardName: "tarmogoyf",
+    color: ["Green"],
+    cmc: 4,
+    type: ["Creature"],
+    legendary: false,
+    origin: "Ice Age - 1995",
+    keywords: ["X", "Graveyard Tracking"],
+    hint: "Originally known as Llurgoyf...",
+  },
+  {
+    cardArtMini: "images/jeweled-lotus-CUT.jpg",
+    cardArtFull: "images/jeweled-lotus.png",
+    cardName: "jeweled lotus",
+    color: ["Colorless"],
+    cmc: 0,
+    type: ["Artifact"],
+    legendary: false,
+    origin: "Commander Legends - 2020",
+    keywords: ["Self-sacrifice", "Ramp", "Mana Generatior", "Commander Text"],
+    hint: "One of the best cards turn 1 in commander...",
+  },
+  {
+    cardArtMini: "images/shahrazad-CUT.jpg",
+    cardArtFull: "images/shahrazad.png",
+    cardName: "shahrazad",
+    color: ["White"],
+    cmc: 2,
+    type: ["Sorcery"],
+    legendary: false,
+    origin: "Arabian Nights - 1993",
+    keywords: ["Sub-game", "Text Dump", "Burn", "Permabanned"],
+    hint: "Get ready for a long commander game...",
+  },
+  {
+    cardArtMini: "images/lotus-field-CUT.jpg",
+    cardArtFull: "images/lotus-field.png",
+    cardName: "lotus field",
+    color: ["Colorless"],
+    cmc: 0,
+    type: ["Land"],
+    legendary: false,
+    origin: "Core Set - 2020",
+    keywords: [
+      "Hexproof",
+      "Enters Tapped",
+      "Land Sacrifice",
+      "Ramp",
+      "Mana Generatior",
+    ],
+    hint: "Get ready for a long commander game...",
+  },
+  {
+    cardArtMini: "images/mystic-sanctuary-CUT.jpg",
+    cardArtFull: "images/mystic-sanctuary.png",
+    cardName: "mystic sanctuary",
+    color: ["Colorless"],
+    cmc: 0,
+    type: ["Land", "Island"],
+    legendary: false,
+    origin: "Throne of Eldraine - 2019",
+    keywords: ["Enters Tapped", "Graveyard Recursion"],
+    hint: "Get ready for a long commander game...",
+  },
+  {
+    cardArtMini: "images/evolving-wilds-CUT.jpg",
+    cardArtFull: "images/evolving-wilds.png",
+    cardName: "evolving wilds",
+    color: ["Colorless"],
+    cmc: 0,
+    type: ["Land"],
+    legendary: false,
+    origin: "Rise of the Eldrazi - 2010",
+    keywords: ["Self-sacrifice", "Tutor"],
+    hint: "Get ready for a long commander game...",
+  },
+  {
+    cardArtMini: "images/otawara-soaring-city.png",
+    cardArtFull: "images/otawara-soaring-city-CUT.jpg",
+    cardName: "otawara, soaring city",
+    color: ["Colorless"],
+    cmc: 0,
+    type: ["Land"],
+    legendary: true,
+    origin: "Kamigawa: Neon Dynasty - 2022",
+    keywords: ["Mana Generator", "Channel", "Bounce", "Discountable"],
+    hint: "Get ready for a long commander game...",
   },
 ];
 
@@ -146,7 +363,7 @@ let textInputEl = document.getElementById("search-bar");
 const guessCountEl = document.querySelector(".guesses-remaining");
 const replayBtnEl = document.querySelector("button");
 const cardGridEl = document.getElementById("card-grid");
-const winScreenEl = document.getElementById('win-screen');
+const winScreenEl = document.getElementById("win-screen");
 const finalMsgEl = document.getElementById("final-message");
 const winCardEl = document.getElementById("full-card");
 const errorMsgEl = document.getElementById("error-message");
@@ -157,9 +374,9 @@ const indexMenu = document.getElementById("card-index");
 /*----- event listeners -----*/
 textInputEl.addEventListener("keypress", handleGuess);
 replayBtnEl.addEventListener("click", init);
-popoutBar.addEventListener("click", function() {
-    indexMenu.classList.toggle("active");
-    indexMenu.classList.toggle("inactive");
+popoutBar.addEventListener("click", function () {
+  indexMenu.classList.toggle("active");
+  indexMenu.classList.toggle("inactive");
 });
 
 /*----- initialize functions -----*/
@@ -170,7 +387,7 @@ function init() {
   cardPresent = 0;
   ignoreText = null;
   guessCount = 0;
-  MAX_GUESS = 5; // ICEBOX: let player adjust total or disable for easy mode
+  MAX_GUESS = 10;
   wrongGuessCount = MAX_GUESS;
   winner = null; // 1-win, null-game in progress
   hidCard = rndCardPicker(); // currently holding card object from cardList array
@@ -184,10 +401,9 @@ function rndCardPicker() {
   let rndCardIdx = Math.floor(Math.random() * cardList.length);
   let rndCard = cardList[rndCardIdx];
   // alert(cardList[rndCardIdx].cardName);
-  winCardEl.setAttribute('src', rndCard.cardArtFull);
-  winCardEl.style.visibility = 'hidden';
+  winCardEl.setAttribute("src", rndCard.cardArtFull);
+  winCardEl.style.visibility = "hidden";
   return rndCard;
-    // return cardList[0]; // set to Black Lotus for attr match testing
 }
 
 /*----- render functions -----*/
@@ -200,8 +416,8 @@ function render() {
 }
 
 function renderReset() {
-    if (!winner && !guessCount) cardGridEl.innerHTML = '';
-    textInputEl.value = '';
+  if (!winner && !guessCount) cardGridEl.innerHTML = "";
+  textInputEl.value = "";
 }
 
 function renderBoard() {
@@ -214,15 +430,13 @@ function renderBoard() {
   }
   matchVals = {}; // reset matchVals for next input
   if (winner) {
-    replayBtnEl.style.visibility = 'visible';
-    winScreenEl.style.visibility = 'visible';
-    winCardEl.style.visibility = 'visible';
+    replayBtnEl.style.visibility = "visible";
+    winScreenEl.style.visibility = "visible";
+    winCardEl.style.visibility = "visible";
   } else {
-    replayBtnEl.style.visibility = 'hidden';
-    winScreenEl.style.visibility = 'hidden';
+    replayBtnEl.style.visibility = "hidden";
+    winScreenEl.style.visibility = "hidden";
   }
-  // winner ? replayBtnEl.style.visibility = 'visible' : replayBtnEl.style.visibility = 'hidden';
-  // winner ? winScreenEl.style.visibility = 'visible' : winScreenEl.style.visibility = 'hidden';
 }
 
 function renderGuessCount() {
@@ -237,87 +451,92 @@ function renderDropMenu() {}
 
 /*----- Functions -----*/
 function getWinner() {
-  (guessCount > MAX_GUESS || wrongGuessCount) ? (winner = 1) : (winner = -1);
+  guessCount > MAX_GUESS || wrongGuessCount ? (winner = 1) : (winner = -1);
   renderMessage();
-  winCardEl.style.visibility = 'visible';
+  winCardEl.style.visibility = "visible";
 }
 
 function renderMessage() {
-    switch(winner) {
-        case -1:
-            finalMsgEl.innerHTML = 'Sorry, out of guesses<br>try again...';
-            break;
-        case 1:
-            finalMsgEl.innerHTML = `Congratulations, you guessed the card!<br>Total guesses: ${guessCount}`;
-            break;
-        default:
-            finalMsgEl.innerHTML = '';
-            break;
-    }
-    nameFailMsg();
-    (cardPresent) ? repeatMsgEl.style.visibility = 'visible' : repeatMsgEl.style.visibility = 'hidden';
-    cardPresent = 0;
+  switch (winner) {
+    case -1:
+      finalMsgEl.innerHTML = "Sorry, out of guesses<br>try again...";
+      break;
+    case 1:
+      finalMsgEl.innerHTML = `Congratulations, you guessed the card!<br>Total guesses: ${guessCount}`;
+      break;
+    default:
+      finalMsgEl.innerHTML = "";
+      break;
+  }
+  nameFailMsg();
+  cardPresent
+    ? (repeatMsgEl.style.visibility = "visible")
+    : (repeatMsgEl.style.visibility = "hidden");
+  cardPresent = 0;
 }
 
-function nameFailMsg() { // show error msg if name is invalid
-    (failName) ? errorMsgEl.style.visibility = 'visible' : errorMsgEl.style.visibility = 'hidden';
+function nameFailMsg() {
+  // show error msg if name is invalid
+  failName
+    ? (errorMsgEl.style.visibility = "visible")
+    : (errorMsgEl.style.visibility = "hidden");
 }
 
 function handleGuess(evt) {
   if (evt.key !== "Enter" || winner) return;
   evt.preventDefault();
   let cardGuess = textInputEl.value.toLowerCase();
-  // alert(typeof(cardGuess)); // placeholder function test
   nameFilter(cardGuess); // needs to cancel if name input is invalid/not in list | ERROR 1
-  textInputEl.value = '';
+  textInputEl.value = "";
   render();
   return cardGuess;
 }
 
 // match cardList card obj to input name
 function nameFilter(cardGuess) {
-    if (!verifyName(cardGuess)) {
-        return failName = 1;
-    } else failName = 0;
+  if (!verifyName(cardGuess)) {
+    return (failName = 1);
+  } else failName = 0;
   for (const card of cardList) {
     // need to make current card name a variable for equality to work properly for some reason
     let listCard = card.cardName;
     // check for winner
     if (hidCard.cardName === cardGuess && listCard === cardGuess) {
-        guessCount++;
-        guessCards.push(card);
-        compareCards(card);
-        getWinner(); // run winner function
-        wrongGuessCount--;
-        break;
+      guessCount++;
+      guessCards.push(card);
+      compareCards(card);
+      getWinner(); // run winner function
+      wrongGuessCount--;
+      break;
       // name input to card in list array
     } else if (listCard === cardGuess) {
-        if (doubleGuess(cardGuess)) break;
-        guessCount++;
-        wrongGuessCount--;
-        guessCards.push(card);
-        compareCards(card);
-        if (guessCount > MAX_GUESS || wrongGuessCount === 0) return getWinner();
+      if (doubleGuess(cardGuess)) break;
+      guessCount++;
+      wrongGuessCount--;
+      guessCards.push(card);
+      compareCards(card);
+      if (guessCount > MAX_GUESS || wrongGuessCount === 0) return getWinner();
     }
   }
-     return cardGuess;
+  return cardGuess;
 }
 
-function verifyName(cardGuess) { // make sure name is in the list
-    let nameIsPresent = 0;
-    cardList.forEach(function(card) {
-        if (card.cardName === cardGuess) return nameIsPresent++;
-    });
-    return nameIsPresent;
+function verifyName(cardGuess) {
+  // make sure name is in the list
+  let nameIsPresent = 0;
+  cardList.forEach(function (card) {
+    if (card.cardName === cardGuess) return nameIsPresent++;
+  });
+  return nameIsPresent;
 }
 
 function doubleGuess(cardGuess) {
-    cardPresent = 0;
-    if (guessCards.length === 0) return cardPresent;
-    for (let card in guessCards) {
-        if (guessCards[card].cardName === cardGuess) cardPresent = 1;
-    }
-    return cardPresent;
+  cardPresent = 0;
+  if (guessCards.length === 0) return cardPresent;
+  for (let card in guessCards) {
+    if (guessCards[card].cardName === cardGuess) cardPresent = 1;
+  }
+  return cardPresent;
 }
 
 // access attributes of wrong card guess for comparison
@@ -442,33 +661,21 @@ function handleKeywordsOutput(newCard) {
   } else return alert("handleKeywordsOutput() Error");
 }
 
-function nameCorrector(newCard) {
-    let name = newCard.cardName.split(' ');
-    for (let i = 0; i < name.lenth; i++) {
-        name[i][0] = name[i][0].toUpperCase();
-    };
-    // name.join(' ');
-    return name.join(' ');
-}
-
 // Row creation function
 function newRow(newCard) {
-    console.log(nameCorrector(newCard));
   let colors = handleColorOutput(newCard);
   let types = handleTypeOutput(newCard);
   let keywords = handleKeywordsOutput(newCard);
-//   let nameFix = nameCorrector(newCard);
   const newSect = document.createElement("section");
   newSect.setAttribute("class", "grdRow");
 
   // add individual divs to show information
   for (let i = 0; i <= 7; i++) {
-    // 7 is max because there are 7 divs in the board display
     switch (i) {
       case (i = 0): {
         const art = document.createElement("div");
         art.setAttribute("class", "card-box");
-        art.classList.add('box-animation');
+        art.classList.add("box-animation");
         art.innerHTML = `<img id="mini-art" src="${newCard.cardArtMini}">`;
         newSect.appendChild(art);
         break;
@@ -476,7 +683,7 @@ function newRow(newCard) {
       case (i = 1): {
         const name = document.createElement("div");
         name.setAttribute("class", matchVals.cardName);
-        name.setAttribute('id', 'grid-animation');
+        name.setAttribute("id", "grid-animation");
         name.innerHTML = `<p>${newCard.cardName}</p>`;
         newSect.appendChild(name);
         break;
@@ -484,7 +691,7 @@ function newRow(newCard) {
       case (i = 2): {
         const color = document.createElement("div");
         color.setAttribute("class", colors);
-        color.setAttribute('id', 'grid-animation');
+        color.setAttribute("id", "grid-animation");
         color.innerHTML = `<p>${newCard.color.join(" ")}</p>`;
         newSect.appendChild(color);
         break;
@@ -492,7 +699,7 @@ function newRow(newCard) {
       case (i = 3): {
         const cmc = document.createElement("div");
         cmc.setAttribute("class", `${matchVals.cmc}`);
-        cmc.setAttribute('id', 'grid-animation');
+        cmc.setAttribute("id", "grid-animation");
         cmc.innerHTML = `<p>${newCard.cmc}</p>`;
         newSect.appendChild(cmc);
         break;
@@ -500,7 +707,7 @@ function newRow(newCard) {
       case (i = 4): {
         const type = document.createElement("div"); // needs check function for partial
         type.setAttribute("class", types);
-        type.setAttribute('id', 'grid-animation');
+        type.setAttribute("id", "grid-animation");
         type.innerHTML = `<p>${newCard.type.join(" ")}</p>`;
         newSect.appendChild(type);
         break;
@@ -508,7 +715,7 @@ function newRow(newCard) {
       case (i = 5): {
         const lgnd = document.createElement("div");
         lgnd.setAttribute("class", `${matchVals.legendary}`);
-        lgnd.setAttribute('id', 'grid-animation');
+        lgnd.setAttribute("id", "grid-animation");
         lgnd.innerHTML = `<p>${newCard.legendary ? "Yes" : "No"}</p>`;
         newSect.appendChild(lgnd);
         break;
@@ -516,15 +723,15 @@ function newRow(newCard) {
       case (i = 6): {
         const origin = document.createElement("div");
         origin.setAttribute("class", `${matchVals.origin}`);
-        origin.setAttribute('id', 'grid-animation');
-        origin.innerHTML = `<p>${newCard.origin}</p>`; // ICEBOX: add arrow for newer/older
+        origin.setAttribute("id", "grid-animation");
+        origin.innerHTML = `<p>${newCard.origin}</p>`;
         newSect.appendChild(origin);
         break;
       }
       case (i = 7): {
-        const keyword = document.createElement("div"); // needs check function for partial
+        const keyword = document.createElement("div");
         keyword.setAttribute("class", keywords);
-        keyword.setAttribute('id', 'grid-animation');
+        keyword.setAttribute("id", "grid-animation");
         keyword.innerHTML = `<p>${newCard.keywords.join(" / ")}</p>`;
         newSect.appendChild(keyword);
         break;
