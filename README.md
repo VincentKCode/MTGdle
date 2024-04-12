@@ -5,8 +5,13 @@
 
 ## Description
 
+
 For those who haven't played wordle, the game is about guessing a Magic the Gathering card based on it's attributes. Entering a card name will reveal the keywords, mana value, color, etc.. and reveal what aspects of the chosen card are matching or related to the hidden card. Of course, not all cards are in the game, I've chosen simple and iconic cards that many Magic players would know, with more to come in the future. A card index menu is present to help the player know what cards are valid guesses
 
+
+### MTGDLE DEVELOPMENT IS CURRENTLY ON HOLD
+
+MTGdle is a class project, but I hope to return to this game and implement much more of my icebox features. It is likely that the game will be rereleased as a 2.0 version so I can rework all of the systems from scratch.
 
 ## Current Game Features
 
@@ -62,7 +67,7 @@ An error will appear if the name entered is not in the card library or was alrea
 4. Continue until you win or lose
 5. Click new game to try again
 
-When matching attributes, remember that a yellow box is a partial match. Unfortunately a highlight feature hasn't been added yet to show what specific text was correct, but that should come in a future update. If you're ever lost or need help, the card index is available to preview of each card. Resouces like Scryfall are an amazing tool as well that I hope to impliment in the future.
+When matching attributes, remember that a yellow box is a partial match. Unfortunately a highlight feature hasn't been added yet to show what specific text was correct, but that should come in a future update. If you're ever lost or need help, the card index is available to preview of each card. Resouces like Scryfall or Gatherer are an amazing tool as well that I hope to impliment in the future to display card details.
 
 
 # Future Plans
@@ -91,5 +96,5 @@ With the limited amount of traits being compared, the game is more difficult tha
 * **[Beleren Font](https://github.com/Saeris/typeface-beleren-bold/tree/master)**:
 Huge thanks to Saeris for creating the font used for game. Google fonts didn't have anything close to this style, so having something nearly identical to the original card text is amazing.
 
-* **[Scryfall](https://scryfall.com/)**:
-Thank you to Scryfall for providing high quality images of the official cards. I use the site almost daily for my own personal use to find almost all of the information I need on my cards, so being able to use this for a personal project was a great experience.
+<!-- * **[Scryfall](https://scryfall.com/)**:
+Thank you to Scryfall for providing high quality images of the official cards. I use the site almost daily for my own personal use to find almost all of the information I need on my cards, so being able to use this for a personal project was a great experience. -->

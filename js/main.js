@@ -99,7 +99,7 @@ const cardList = [
   {
     cardArtMini: "images/niv-mizzet-parun-CUT.jpg",
     cardArtFull: "images/niv-mizzet-parun.png",
-    cardName: "niv-mizzet parun",
+    cardName: "niv-mizzet, parun",
     color: ["Blue", "Red"],
     cmc: 6,
     type: ["Creature"],
@@ -246,7 +246,7 @@ const cardList = [
     cardArtFull: "images/tarmogoyf.png",
     cardName: "tarmogoyf",
     color: ["Green"],
-    cmc: 4,
+    cmc: 2,
     type: ["Creature"],
     legendary: false,
     origin: "Ice Age - 1995",
@@ -578,7 +578,7 @@ function compareArrs(attrArray, secArray, refAttr, arrMatches) {
   let i = 0;
   // WORKING // checks attributes containing arrays for individual matches
   while (i < secArray.length) {
-    if (attrArray.includes(secArray[i])) {
+    if (attrArray.includes(secArray[i])) { // if included, push into it's respective category
       if (refAttr === "color") arrMatches.sameColors.push(`${secArray[i]}`);
       if (refAttr === "type") arrMatches.sameTypes.push(`${secArray[i]}`);
       if (refAttr === "keywords")
@@ -593,7 +593,7 @@ function handleColorOutput(newCard) {
   let clrCounter = 0;
   let sqrColor;
   for (let hidColor of hidCard.color) {
-    if (newCard.color.includes(hidColor)) {
+    if (newCard.color.includes(hidColor)) { // counter for each match
       clrCounter++;
     }
   }
@@ -610,7 +610,7 @@ function handleColorOutput(newCard) {
     newCard.color.length !== hidCard.color.length
   ) {
     return (sqrColor = ARR_VALUES.semi);
-  } else return alert("handleColorOutput() Error");
+  }
 }
 
 function handleTypeOutput(newCard) {
@@ -634,7 +634,7 @@ function handleTypeOutput(newCard) {
     newCard.type.length !== hidCard.type.length
   ) {
     return (sqrColor = ARR_VALUES.semi);
-  } else return alert("handleTypeOutput() Error");
+  }
 }
 
 function handleKeywordsOutput(newCard) {
@@ -658,7 +658,7 @@ function handleKeywordsOutput(newCard) {
     newCard.keywords.length !== hidCard.keywords.length
   ) {
     return (sqrColor = ARR_VALUES.semi);
-  } else return alert("handleKeywordsOutput() Error");
+  }
 }
 
 // Row creation function
@@ -705,7 +705,7 @@ function newRow(newCard) {
         break;
       }
       case (i = 4): {
-        const type = document.createElement("div"); // needs check function for partial
+        const type = document.createElement("div");
         type.setAttribute("class", types);
         type.setAttribute("id", "grid-animation");
         type.innerHTML = `<p>${newCard.type.join(" ")}</p>`;
